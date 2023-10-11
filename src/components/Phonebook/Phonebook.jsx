@@ -28,7 +28,7 @@ export const Phonebook = () => {
   
   return (
     <DeskPhonebook>
-      <Section title={"Phonebook: HW-07 Redux, AsyncThunk"}>
+      <Section title={"Phonebook: HW-08 LoginUser"}>
         <Form />
       </Section>
         
