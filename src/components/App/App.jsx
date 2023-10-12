@@ -1,5 +1,8 @@
-import { lazy } from 'react';
+import { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from "react-router-dom";
+import { refreshUser} from "redux/auth/operations"
+import { useAuth } from "hooks";
 
 import { Layout } from "./Layout";
 
@@ -8,6 +11,13 @@ import { Container } from "./App.styled";
 
 
 export const App = () => {
+  const dispatch = useDispatch()
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch])
+
  
   const Home = lazy(() => import('../../pages/Home'));
   const Login = lazy(() => import('../../pages/Login'));
