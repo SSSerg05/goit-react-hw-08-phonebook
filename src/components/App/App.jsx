@@ -27,20 +27,20 @@ export const App = () => {
   // const Reviews = lazy(() => import('./Review/Reviews'));
   
     return (
-  
-      <Routes>
-        <Route path="/" element={ <Layout />}>
-          <Route index element= {<Home />} />
-          <Route path="login" element={ <Login /> } />
-          <Route path="regester" element={ <Regester /> } />
-          <Route path="contacts" element={ <Contacts /> } />
-          {/* <Route path="movies/:movieId" element={ <MovieDetails /> }> */}
-            {/* <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} /> */}
-          {/* </Route> */}
-        </Route>
-      </Routes>
-  
+      <>
+        <Routes>
+          <Route path="/" element={ <Layout />}>
+            <Route index element= {<Home />} />
+            <Route path="login" element={ <Login /> } />
+            <Route path="regester" element={ <Regester /> } />
+            <Route path="contacts" element={ <Contacts /> } />
+            {/* <Route path="movies/:movieId" element={ <MovieDetails /> }> */}
+              {/* <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} /> */}
+            {/* </Route> */}
+          </Route>
+        </Routes>
+      </>
     );
 
 
