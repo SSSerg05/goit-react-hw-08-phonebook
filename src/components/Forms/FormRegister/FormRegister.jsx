@@ -2,8 +2,9 @@ import { useDispatch } from 'react-redux';
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
+import { InitForm } from "../InitForm"
 import { TextInputLiveFeedback } from 'components/TextInputLiveFeedback/TextInputLiveFeedback';
-import { registerUserThunk } from '../../redux/operations'
+import { registerUserThunk } from '../../../redux/operations'
 
 export const FormRegister = () => {
   const dispatch = useDispatch()
@@ -21,38 +22,8 @@ export const FormRegister = () => {
     console.log(finalUserData);
     
   }
-
-  const formik = useFormik({
-    initialValues: { 
-      userName: "", 
-      userEmail: "", 
-      userPassword: "", 
-    },
-    onSubmit: async (values) => handleSubmit(values),
-    validationSchema: Yup.object({
-
-      userName: Yup.string()
-        .min(3, 'Must be at least 3 characters')
-        .max(40, 'Must be less than 40 characters')
-        .matches(
-          /^[\w-/']+$/,
-          'Cannot contain special characters or spaces'
-        )
-        .required('Username is required'),
-
-      userEmail: Yup.string()
-        .matches(
-          /^[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i,
-          'Invalid email address'
-        )
-        .required('Email is required'),
-
-      userPassword: Yup.string()
-        .min(7, 'Must be at least 7 characters')
-        .required('Password is required'),
-    }),
-  });
-
+  const formik = InitForm();
+ 
   return (
     <FormikProvider value={formik}>
       <Form>
@@ -82,7 +53,7 @@ export const FormRegister = () => {
         />
 
         <div>
-          <button type="submit" >Submit</button>
+          <button type="submit" onSubmit={(values) => handleSubmit(values) }>Submit</button>
           <button type="reset">Reset</button>
         </div>
       </Form>

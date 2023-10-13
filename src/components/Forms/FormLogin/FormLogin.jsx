@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { useFormik, FormikProvider, Form } from 'formik';
-import * as Yup from 'yup';
+import { FormikProvider, Form } from 'formik';
+// import * as Yup from 'yup';
 
+import { InitForm } from '../InitForm';
 import { TextInputLiveFeedback } from 'components/TextInputLiveFeedback/TextInputLiveFeedback';
-import { registerUserThunk } from '../../redux/operations'
+import { loginUserThunk } from '../../../redux/operations'
 
-export const FormRegister = () => {
+
+export const FormLogin = () => {
   const dispatch = useDispatch()
 
 
@@ -20,36 +22,38 @@ export const FormRegister = () => {
     //dispatch(registerUserThunk(finalUserData))
   }
 
-  const formik = useFormik({
-    initialValues: { 
-      userName: "", 
-      userEmail: "", 
-      userPassword: "", 
-    },
-    onSubmit: async (values) => handleSubmit(values),
-    validationSchema: Yup.object({
+  const formik = InitForm();
 
-      userName: Yup.string()
-        .min(3, 'Must be at least 3 characters')
-        .max(40, 'Must be less than 40 characters')
-        .matches(
-          /^[\w-/']+$/,
-          'Cannot contain special characters or spaces'
-        )
-        .required('Username is required'),
+  // const formik = useFormik({
+  //   initialValues: { 
+  //     userName: "", 
+  //     userEmail: "", 
+  //     userPassword: "", 
+  //   },
+  //   onSubmit: async (values) => handleSubmit(values),
+  //   validationSchema: Yup.object({
 
-      userEmail: Yup.string()
-        .matches(
-          /^[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i,
-          'Invalid email address'
-        )
-        .required('Email is required'),
+  //     userName: Yup.string()
+  //       .min(3, 'Must be at least 3 characters')
+  //       .max(40, 'Must be less than 40 characters')
+  //       .matches(
+  //         /^[\w-/']+$/,
+  //         'Cannot contain special characters or spaces'
+  //       )
+  //       .required('Username is required'),
 
-      userPassword: Yup.string()
-        .min(7, 'Must be at least 7 characters')
-        .required('Password is required'),
-    }),
-  });
+  //     userEmail: Yup.string()
+  //       .matches(
+  //         /^[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i,
+  //         'Invalid email address'
+  //       )
+  //       .required('Email is required'),
+
+  //     userPassword: Yup.string()
+  //       .min(7, 'Must be at least 7 characters')
+  //       .required('Password is required'),
+  //   }),
+  // });
 
   return (
     <FormikProvider value={formik}>
@@ -80,11 +84,10 @@ export const FormRegister = () => {
         />
 
         <div>
-          <button type="submit" >Submit</button>
+          <button type="submit" onSubmit={(values) => handleSubmit(values) }>Submit</button>
           <button type="reset">Reset</button>
         </div>
       </Form>
     </FormikProvider>
   );
-
 }

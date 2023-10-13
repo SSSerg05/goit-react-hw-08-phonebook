@@ -1,4 +1,4 @@
-import { FormLogic } from "components/FormLogin/FormLogin"
+import { FormLogin } from "components/Forms/FormLogin/FormLogin"
 
 
 export const Login = () => { 
@@ -6,7 +6,7 @@ export const Login = () => {
   return(
     <>
       <h2>Sign In</h2>
-      <FormLogic />
+      <FormLogin />
     </>
   )
 }

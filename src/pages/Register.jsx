@@ -2,7 +2,7 @@
 // import { Formik, Field, Form } from "formik"
 // import { authReducer } from "redux/authSlice";
 
-import { FormRegister } from "components/FormRegister/FormRegister"
+import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 
 export const Register = () => { 
   // const dispatch = Dispatch();
