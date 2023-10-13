@@ -13,9 +13,17 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import { authReducer } from "./authSlice";
 import { contactsReducer } from "./contactsSlice";
 import { filtersReducer } from "./filtersSlice";
 import { findQueryReducer } from "./findQuerySlice";
+
+
+const authConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['auth']
+}
 
 const contactsConfig = {
   key: 'contacts',
@@ -32,6 +40,7 @@ const filtersConfig = {
 // redux-persist + store
 export const store = configureStore({
   reducer: {
+    auth: persistReducer(authConfig, authReducer),
     contacts: persistReducer(contactsConfig, contactsReducer),
     filters: persistReducer(filtersConfig, filtersReducer),
     findQuery: findQueryReducer,

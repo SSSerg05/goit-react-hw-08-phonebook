@@ -1,10 +1,19 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { statusFilters } from 'redux/constants';
 
+// User authetification
+export const selectUserLoading = state => state.auth.loading;
+export const selectUserError = state => state.auth.error;
+export const selectToken = state => state.auth.token;
+export const selectUserData = state => state.auth.userData;
+export const selectAuthetification = state => state.auth.authetification;
+
+// Contacts
 export const selectContacts = state => state.contacts.items;
 export const selectLoading = state => state.contacts.loading;
 export const selectError = state => state.contacts.error;
 
+// Filters
 export const selectStatusFilter = state => state.filters.status;
 export const selectFindQuery = state => state.findQuery;
 
