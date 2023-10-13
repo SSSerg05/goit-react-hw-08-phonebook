@@ -14,32 +14,38 @@ export const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
   const [didFocus, setDidFocus] = useState(false);
   const handleFocus = () => setDidFocus(true);
   const showFeedback =
-    (!!didFocus && field.value?.trim().length > 2) || meta.touched;
+    (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
   return (
-    <div
-      className={`form-control ${
-        showFeedback ? (meta.error ? 'invalid' : 'valid') : ''
+    <div className={`form-control items-center space-between ${
+        showFeedback ? (meta.error ? 'error' : 'success') : ''
       }`}
     >
-      <div className="flex items-center space-between">
-        <label htmlFor={props.id}>{label}</label>{' '}
-        {showFeedback ? (
+      {/* <div className="flex items-center space-between"> */}
+
+      <label htmlFor={props.id}>{label}
+        <input
+          className={`${
+            showFeedback ? (meta.error ? 'invalid' : 'valid') : ''
+          }`}        
+          {...props}
+          {...field}
+          aria-describedby={`${props.id}-feedback ${props.id}-help`}
+          onFocus={handleFocus}
+        />
+      </label>
+
+      { showFeedback && (
           <div
             id={`${props.id}-feedback`}
             aria-live="polite"
-            className="feedback text-sm"
+            className="my-feedback text-sm"
           >
             {meta.error ?? '✓'}
           </div>
-        ) : null}
-      </div>
-      <input
-        {...props}
-        {...field}
-        aria-describedby={`${props.id}-feedback ${props.id}-help`}
-        onFocus={handleFocus}
-      />
+      ) }
+
+      {/* </div> */}
       <div className="text-xs" id={`${props.id}-help`} tabIndex="-1">
         {helpText}
       </div>

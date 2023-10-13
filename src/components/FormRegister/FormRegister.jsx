@@ -29,17 +29,17 @@ export const FormRegister = () => {
       userName: Yup.string()
         .min(3, 'Must be at least 3 characters')
         .max(40, 'Must be less than 40 characters')
-        .required('Username is required')
         .matches(
           /^[\w-/']+$/,
           'Cannot contain special characters or spaces'
-        ),
+        )
+        .required('Username is required'),
 
-        userEmail: Yup.string()
+      userEmail: Yup.string()
         .matches(
-          /^[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i, //.test(values.userEmail),
+          /^[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i,
           'Invalid email address'
-        ) 
+        )
         .required('Email is required'),
 
       userPassword: Yup.string()
@@ -73,7 +73,7 @@ export const FormRegister = () => {
           name="userPassword"
           placeholder="Enter password" 
           helpText="Must be more 7 characters"
-          type="text"
+          type="password"
         />
 
         <div>
