@@ -22,7 +22,7 @@ import { findQueryReducer } from "./findQuerySlice";
 const authConfig = {
   key: 'auth',
   storage,
-  whitelist: ['auth']
+  whitelist: ['token'],
 }
 
 const contactsConfig = {

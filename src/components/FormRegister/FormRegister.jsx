@@ -2,17 +2,22 @@ import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { TextInputLiveFeedback } from 'components/TextInputLiveFeedback/TextInputLiveFeedback';
+import { useDispatch } from 'react-redux';
+import { registerUserThunk } from '../../redux/operations'
 
 export const FormRegister = () => {
-  
+  const dispatch = useDispatch()
+
+
   const handleSubmit = async (values) => {
     const {userName:name, userEmail:email, userPassword:password} = values
+    
     const finalUserData = {
       name,
       email,
       password,
     }
-
+    dispatch(registerUserThunk(finalUserData))
     console.log(finalUserData);
     
   }
