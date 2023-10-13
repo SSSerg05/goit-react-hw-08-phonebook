@@ -1,26 +1,19 @@
 // import { Dispatch } from "react"
-import { Formik, Field, Form } from "formik"
+// import { Formik, Field, Form } from "formik"
 // import { authReducer } from "redux/authSlice";
+
+import { FormRegister } from "components/FormRegister/FormRegister"
 
 export const Register = () => { 
   // const dispatch = Dispatch();
 
-  const handleSubmit = ({userName:name, userEmail:email, userPassword:password}) => {
-
-    const finalUserData = {
-      name,
-      email,
-      password,
-    }
-
-    console.log(finalUserData);
-    
-  }
-
   return(
     <div>
       <h2>Register Your Account</h2>
-      <Formik 
+      
+      <FormRegister />
+      
+      {/* <Formik 
         initialValues={{ userName: "", userEmail: "", userPassword: "", }}
         onSubmit={ async (values) => handleSubmit(values) }
       >
@@ -41,7 +34,7 @@ export const Register = () => {
           <button type="submit">Submit</button>
         </Form>
 
-      </Formik>
+      </Formik> */}
     </div>
   )
 }
