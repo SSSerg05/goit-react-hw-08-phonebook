@@ -1,10 +1,13 @@
+import { FormLogic } from "components/FormLogin/FormLogin"
+
 
 export const Login = () => { 
 
   return(
-    <div>
-      Login
-    </div>
+    <>
+      <h2>Sign In</h2>
+      <FormLogic />
+    </>
   )
 }
 

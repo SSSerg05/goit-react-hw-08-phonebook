@@ -17,9 +17,7 @@ export const FormRegister = () => {
       email,
       password,
     }
-    dispatch(registerUserThunk(finalUserData))
-    console.log(finalUserData);
-    
+    //dispatch(registerUserThunk(finalUserData))
   }
 
   const formik = useFormik({
