@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { registerUserThunk, loginUserThunk } from "./operations";
+import { 
+  registerUserThunk,
+  loginUserThunk, 
+  refreshUserThunk, } from "./operations";
 
 const handlePending = state => {
   state.loading = true;
@@ -32,7 +35,6 @@ const authSlice = createSlice({
       .addCase(registerUserThunk.pending, handlePending)
       .addCase(registerUserThunk.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null;
         state.userData = action.payload.user;
         state.token = action.payload.token;
         state.authetification = true;
@@ -42,12 +44,20 @@ const authSlice = createSlice({
       .addCase(loginUserThunk.pending, handlePending)
       .addCase(loginUserThunk.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null;
         state.userData = action.payload.user;
         state.token = action.payload.token;
         state.authetification = true;
       })
+      .addCase(refreshUserThunk.rejected, handleRejected)
+      // ==== Refresh ====
+      .addCase(refreshUserThunk.pending, handlePending)
+      .addCase(refreshUserThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.userData = action.payload;
+        state.authetification = true;
+      })
       .addCase(loginUserThunk.rejected, handleRejected)
+      // ==== default ====
       .addDefaultCase((state, action) => {})
 });
 

@@ -25,24 +25,63 @@ export const registerUserThunk = createAsyncThunk(
   "auth/register", 
   async (userData, thunkAPI) =>{
     try {
+
       const { data } = await $instance.post('/users/signup', userData);
       setToken(data.token)
       return data;
+
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 )
 
-
 // login користувача
 export const loginUserThunk = createAsyncThunk(
   "auth/login", 
   async (userData, thunkAPI) =>{
     try {
+
       const { data } = await $instance.post('/users/login', userData);
-      setToken(data.token)
+      setToken(data.token);
       return data;
+
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+)
+
+// auto login user (refresh)
+export const refreshUserThunk = createAsyncThunk(
+  "auth/refreshUser", 
+  async (_, thunkAPI) => {
+
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    try {
+
+      setToken(token);
+      const { data } = await $instance.get('/users/current');
+      return data;
+
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+)
+
+// logout користувача
+export const logoutUserThunk = createAsyncThunk(
+  "auth/logout", 
+  async (_, thunkAPI) =>{
+    try {
+
+      const { data } = await $instance.post('/users/logout');
+      clearToken();
+      return data;
+
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

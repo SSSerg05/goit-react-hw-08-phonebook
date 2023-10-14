@@ -1,31 +1,34 @@
 import { useEffect, lazy } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from "react-router-dom";
 // import { refreshUser} from "redux/auth/operations"
 // import { useAuth } from "hooks";
 
 import { Layout } from "./Layout";
 
-import { Phonebook } from '../Phonebook/Phonebook';
+// import { Phonebook } from '../Phonebook/Phonebook';
 import { Container } from "./App.styled";
+import { selectToken } from 'redux/selectors';
+import { refreshUserThunk } from 'redux/operations';
 
 
 export const App = () => {
-  const dispatch = useDispatch()
-  // const { isRefreshing } = useAuth();
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch])
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
 
+  // autoLogin current user
+  useEffect(() => {
+    if (!token) return;
+
+    dispatch(refreshUserThunk());
+  }, [token, dispatch])
  
   const Home = lazy(() => import('../../pages/Home'));
   const Login = lazy(() => import('../../pages/Login'));
   const Register = lazy(() => import('../../pages/Register'));
   const Contacts = lazy(() => import('../../pages/Contacts'));
-  // const Cast = lazy(() => import('./Cast/Сast'));
-  // const Reviews = lazy(() => import('./Review/Reviews'));
-  
+
     return (
       <Container>
         <Routes>
