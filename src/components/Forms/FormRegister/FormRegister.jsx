@@ -29,14 +29,6 @@ export const FormRegister = () => {
     <FormikProvider value={formik}>
       <Form>
         <TextInputLiveFeedback
-          label="Username"
-          id="userName"
-          name="userName"
-          placeholder="Enter your name" 
-          helpText="Must be 3-40 characters and cannot contain special characters."
-          type="text"
-        />
-        <TextInputLiveFeedback
           label="Email"
           id="userEmail"
           name="userEmail"
@@ -54,7 +46,7 @@ export const FormRegister = () => {
         />
 
         <div>
-          <button type="submit" onSubmit={(values) => handleSubmit(values) }>Submit</button>
+          <button type="submit" onSubmit={(values) => handleSubmit(values) }>Sing Up</button>
           <button type="reset">Reset</button>
         </div>
       </Form>
