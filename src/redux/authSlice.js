@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { 
   registerUserThunk,
   loginUserThunk, 
-  refreshUserThunk, } from "./operations";
+  refreshUserThunk,
+  logoutUserThunk, } from "./operations";
 
 const handlePending = state => {
   state.loading = true;
@@ -57,6 +58,15 @@ const authSlice = createSlice({
         state.authetification = true;
       })
       .addCase(loginUserThunk.rejected, handleRejected)
+      // ==== Logout ====
+      .addCase(logoutUserThunk.pending, handlePending)
+      .addCase(logoutUserThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.authetification = false;
+        state.userData = null;
+        state.token = null;
+      })
+      .addCase(logoutUserThunk.rejected, handleRejected)      
       // ==== default ====
       .addDefaultCase((state, action) => {})
 });

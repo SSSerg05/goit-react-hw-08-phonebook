@@ -37,10 +37,6 @@ export const App = () => {
             <Route path="login" element={ <Login /> } />
             <Route path="register" element={ <Register /> } />
             <Route path="contacts" element={ <Contacts /> } />
-            {/* <Route path="movies/:movieId" element={ <MovieDetails /> }> */}
-              {/* <Route path="cast" element={<Cast />} />
-              <Route path="reviews" element={<Reviews />} /> */}
-            {/* </Route> */}
           </Route>
         </Routes>
       </Container>
