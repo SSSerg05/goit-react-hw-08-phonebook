@@ -4,8 +4,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { Layout } from "./Layout";
 
-// import { Phonebook } from '../Phonebook/Phonebook';
-import { selectToken } from 'redux/selectors';
+import { selectToken, selectAuthetification } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/operations';
 import { Container } from "./App.styled";
 
@@ -14,14 +13,14 @@ export const App = () => {
 
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
+  const authetification = useSelector(selectAuthetification)
 
-
-  // autoLogin current user
+  // autoLogin current user (refresh)
   useEffect(() => {
-    if (!token) return;
+    if (!token || authetification) return;
 
     dispatch(refreshUserThunk());
-  }, [token, dispatch])
+  }, [token, authetification, dispatch])
  
   const Home = lazy(() => import('../../pages/Home'));
   const Login = lazy(() => import('../../pages/Login'));
@@ -40,13 +39,6 @@ export const App = () => {
         </Routes>
       </Container>
     );
-
-
-  // return (
-  //   <Container>
-  //     <Phonebook />
-  //   </Container>
-  // );
 };
 
 export default App
