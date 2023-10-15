@@ -10,6 +10,10 @@ const $instance = axios.create({
   baseURL: "https://connections-api.herokuapp.com",
 });
 
+
+// Auth
+//====================
+
 // записати токен
 export const setToken = (token) => {
   $instance.defaults.headers['Authorization'] = `Bearer ${token}`;
@@ -88,18 +92,22 @@ export const logoutUserThunk = createAsyncThunk(
   }
 )
 
-export const fetchContacts = createAsyncThunk(
-  "contacts/fetchAll",
+
+// Contacts
+//====================
+export const requestContactsThunk = createAsyncThunk(
+  "contacts/getAll",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/contacts");
-      return response.data;
+      const { data } = await axios.get("/contacts");
+      return data;
     } 
     catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
 
 export const addContact = createAsyncThunk(
   "contacts/addContact",

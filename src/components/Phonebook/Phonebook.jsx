@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 // redux
-import { fetchContacts } from "redux/operations";
-import { selectError, selectLoading } from "redux/selectors";
+import { requestContactsThunk } from "redux/operations";
+import { selectError, selectLoading, selectAuthetification, selectContacts } from "redux/selectors";
 
 // components
 import { Section } from "../Section/Section";
@@ -17,12 +17,16 @@ import { DeskPhonebook } from "./Phonebook.styled";
 
 
 export const Phonebook = () => {
+  
   const dispatch = useDispatch();
+
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const authetification = useSelector(selectAuthetification);
+  const contacts = useSelector(selectContacts);
 
   useEffect(() =>  {
-    dispatch(fetchContacts());
+    dispatch(requestContactsThunk());
   }, [dispatch]);
 
   
