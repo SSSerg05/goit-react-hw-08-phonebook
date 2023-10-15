@@ -1,15 +1,13 @@
 import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from "react-router-dom";
-// import { refreshUser} from "redux/auth/operations"
-// import { useAuth } from "hooks";
 
 import { Layout } from "./Layout";
 
 // import { Phonebook } from '../Phonebook/Phonebook';
-import { Container } from "./App.styled";
 import { selectToken } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/operations';
+import { Container } from "./App.styled";
 
 
 export const App = () => {

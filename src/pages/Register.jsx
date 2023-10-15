@@ -1,12 +1,15 @@
-// import { Dispatch } from "react"
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+
+import {selectAuthetification} from 'redux/selectors';
 // import { Formik, Field, Form } from "formik"
-// import { authReducer } from "redux/authSlice";
 
 import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 
-export const Register = () => { 
-  // const dispatch = Dispatch();
 
+export const Register = () => { 
+  const authetification = useSelector(selectAuthetification);
+  if(authetification) return <Navigate to='/contacts' />
   return(
     <div>
       <h2>Register Your Account</h2>
