@@ -6,12 +6,13 @@ import { requestContactsThunk } from "redux/operations";
 import { selectError, selectLoading, selectAuthetification, selectContacts } from "redux/selectors";
 
 // components
+import { Loader } from "components/Loader/Loader";
 import { Section } from "../Section/Section";
 import { Form } from "./Form/Form";
 import { Search } from "./Search/Search";
 import { Filter } from "./Filter/Filter";
 import { ContactsList } from "./ContactsList/ContactsList";
-import { Loader } from "components/Loader/Loader";
+
 // style
 import { DeskPhonebook } from "./Phonebook.styled";
 
@@ -32,7 +33,8 @@ export const Phonebook = () => {
   
   return (
     <DeskPhonebook>
-      <Section title={"Phonebook: HW-08 LoginUser"}>
+
+      <Section title={"Phonebook: HW-08"}>
         <Form />
       </Section>
         
@@ -44,8 +46,9 @@ export const Phonebook = () => {
       <Section title={"Contacts"}>
 
         { loading && <Loader />}
-
+        { error && <p>Error... { error }</p>}
         { loading && !error && <b>Request in progress...</b> }
+        
         <ContactsList />
       </Section>
     </DeskPhonebook>
