@@ -6,6 +6,7 @@ import {selectAuthetification} from 'redux/selectors';
 
 
 export const Login = () => { 
+  
   const authetification = useSelector(selectAuthetification);
   if(authetification) return <Navigate to='/contacts' />
 

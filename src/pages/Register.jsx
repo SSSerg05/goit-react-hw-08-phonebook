@@ -8,9 +8,10 @@ import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 
 
 export const Register = () => { 
+  
   const authetification = useSelector(selectAuthetification);
   if(authetification) return <Navigate to='/contacts' />
-  
+
   return(
     <div>
       <h2>Register Your Account</h2>
