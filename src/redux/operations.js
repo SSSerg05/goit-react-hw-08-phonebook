@@ -110,7 +110,7 @@ export const requestContactsThunk = createAsyncThunk(
 );
 
 // add Contact
-export const addContact = createAsyncThunk(
+export const addContactThunk = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
     const {name, number, selected=false} = contact;
@@ -125,7 +125,7 @@ export const addContact = createAsyncThunk(
 );
 
 // delete Contact
-export const deleteContact = createAsyncThunk(
+export const deleteContactThunk = createAsyncThunk(
   "contacts/deleteContact",
   async (contactId, thunkAPI) => {
     try {
@@ -139,7 +139,7 @@ export const deleteContact = createAsyncThunk(
 );
 
 // update Contact
-export const patchContact = createAsyncThunk(
+export const patchContactThunk = createAsyncThunk(
   "contacts/update:bnjvbhContact",
   async (contactId, thunkAPI) => {
     try {
@@ -153,7 +153,7 @@ export const patchContact = createAsyncThunk(
 );
 
 // check filter
-export const toggleCompleted = createAsyncThunk(
+export const toggleCompletedThunk = createAsyncThunk(
   "contacts/toggleCompleted",
 //   async (contact, thunkAPI) => {
 //     try {

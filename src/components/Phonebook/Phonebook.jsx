@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 // redux
 import { requestContactsThunk } from "redux/operations";
-import { selectError, selectLoading, selectAuthetification, selectContacts } from "redux/selectors";
+import { selectError, selectLoading, selectAuthetification } from "redux/selectors";
 
 // components
 import { Loader } from "components/Loader/Loader";
@@ -24,12 +24,12 @@ export const Phonebook = () => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const authetification = useSelector(selectAuthetification);
-  const contacts = useSelector(selectContacts);
 
   useEffect(() =>  {
     dispatch(requestContactsThunk());
   }, [dispatch]);
 
+  if (!authetification) return;
   
   return (
     <DeskPhonebook>

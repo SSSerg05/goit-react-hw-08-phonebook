@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { requestContactsThunk, addContact, deleteContact, toggleCompleted } from "./operations";
+import { 
+  requestContactsThunk,
+  addContactThunk, 
+  deleteContactThunk, 
+  toggleCompletedThunk } from "./operations";
 
 const handlePending = state => {
   state.loading = true;
@@ -24,7 +28,7 @@ const contactsSlice = createSlice({
   },
   extraReducers: (builder) => 
     builder
-      // requestContacts
+      // requestContacts (getAllContacts)
       .addCase(requestContactsThunk.pending, handlePending)
       .addCase(requestContactsThunk.fulfilled, (state, action) => {
         state.loading = false;
@@ -32,16 +36,17 @@ const contactsSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(requestContactsThunk.rejected, handleRejected)
-      //
-      .addCase(addContact.pending, handlePending)
-      .addCase(addContact.fulfilled, (state, action) => {
+      // addContact
+      .addCase(addContactThunk.pending, handlePending)
+      .addCase(addContactThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items.push(action.payload);
       })
-      .addCase(addContact.rejected, handleRejected)
-      .addCase(deleteContact.pending, handlePending)
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(addContactThunk.rejected, handleRejected)
+      // deleteContact
+      .addCase(deleteContactThunk.pending, handlePending)
+      .addCase(deleteContactThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         const index = state.items.findIndex(
@@ -49,9 +54,10 @@ const contactsSlice = createSlice({
         );
         state.items.splice(index, 1);
       })
-      .addCase(deleteContact.rejected, handleRejected)
-      .addCase(toggleCompleted.pending, handlePending)
-      .addCase(toggleCompleted.fulfilled, (state, action) => {
+      .addCase(deleteContactThunk.rejected, handleRejected)
+      // select/unSelect contact
+      .addCase(toggleCompletedThunk.pending, handlePending)
+      .addCase(toggleCompletedThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         const index = state.items.findIndex(
@@ -59,7 +65,7 @@ const contactsSlice = createSlice({
         );
         state.items.splice(index, 1, action.payload);
       })
-      .addCase(toggleCompleted.rejected, handleRejected)
+      .addCase(toggleCompletedThunk.rejected, handleRejected)
       .addDefaultCase((state, action) => {})
 });
 

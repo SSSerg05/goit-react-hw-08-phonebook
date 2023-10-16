@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { MdClose } from 'react-icons/md';
 import PropTypes from 'prop-types'; // ES6'
 
-import { deleteContact, toggleCompleted, } from "redux/operations";
+import { deleteContactThunk, toggleCompletedThunk, } from "redux/operations";
 
 import { Card, Name, Button, Checkbox } from './Contact.styled';
 
@@ -10,8 +10,8 @@ export const Contact = ({contact}) => {
   const dispatch = useDispatch();
 
   const {id, name, number, selected=false} = contact;
-  const handleDelete = () => dispatch(deleteContact(id));
-  const handleToggle = () => dispatch(toggleCompleted(contact));
+  const handleDelete = () => dispatch(deleteContactThunk(id));
+  const handleToggle = () => dispatch(toggleCompletedThunk(contact));
   
   return (
     <Card>
