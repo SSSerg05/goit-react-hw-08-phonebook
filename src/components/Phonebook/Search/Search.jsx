@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setFindQuery } from "redux/findQuerySlice";
 
 // style
-import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Form/Form.styled"
+import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../../Forms/FormContact/FormContact.styled"
 
 
 export const Search = ({value}) => {

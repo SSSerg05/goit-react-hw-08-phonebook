@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { addContact } from "redux/operations";
-import { FieldBox, FieldLabel, FieldPosition, FieldInput, Button } from "./Form.styled"
+import { FieldBox, FieldLabel, FieldPosition, FieldInput, Button } from "./FormContact.styled"
 import { selectContacts } from "redux/selectors";
 
 

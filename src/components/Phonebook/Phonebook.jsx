@@ -8,7 +8,7 @@ import { selectError, selectLoading, selectAuthetification, selectContacts } fro
 // components
 import { Loader } from "components/Loader/Loader";
 import { Section } from "../Section/Section";
-import { Form } from "./Form/Form";
+import { Form } from "../Forms/FormContact/FormContact";
 import { Search } from "./Search/Search";
 import { Filter } from "./Filter/Filter";
 import { ContactsList } from "./ContactsList/ContactsList";
