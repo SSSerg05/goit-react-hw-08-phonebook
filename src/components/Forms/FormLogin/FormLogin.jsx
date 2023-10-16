@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { TextInputLiveFeedback } from 'components/TextInputLiveFeedback/TextInputLiveFeedback';
+import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
 import { loginUserThunk } from '../../../redux/operations'
 
 
