@@ -13,6 +13,5 @@ export const Title = styled.h3`
 `
 
 export const SectionApp = styled.section`
-  /* margin-top: 32px; */
   margin-bottom: 16px;
 `
