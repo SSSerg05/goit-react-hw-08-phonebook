@@ -99,7 +99,7 @@ export const requestContactsThunk = createAsyncThunk(
   "contacts/getAll",
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get("/contacts");
+      const { data } = await $instance.get("/contacts");
       return data;
     } 
     catch (e) {
@@ -114,7 +114,7 @@ export const addContact = createAsyncThunk(
   async (contact, thunkAPI) => {
     const {name, number, selected=false} = contact;
     try {
-      const response = await axios.post("/contacts", { name, number, selected });
+      const response = await $instance.post("/contacts", { name, number, selected });
       return response.data;
     } 
     catch (e) {
@@ -127,7 +127,7 @@ export const deleteContact = createAsyncThunk(
   "contacts/deleteContact",
   async (contactId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/contacts/${contactId}`);
+      const response = await $instance.delete(`/contacts/${contactId}`);
       return response.data;
     } 
     catch (e) {
@@ -140,7 +140,7 @@ export const toggleCompleted = createAsyncThunk(
   "contacts/toggleCompleted",
   async (contact, thunkAPI) => {
     try {
-      const response = await axios.put(`/contacts/${contact.id}`, {
+      const response = await $instance.put(`/contacts/${contact.id}`, {
         selected: !contact.selected,
       });
       return response.data;
@@ -150,3 +150,60 @@ export const toggleCompleted = createAsyncThunk(
     }
   }
 );
+
+// Contacts
+//====================
+// export const requestContactsThunk = createAsyncThunk(
+//   "contacts/getAll",
+//   async (_, thunkAPI) => {
+//     try {
+//       const { data } = await axios.get("/contacts");
+//       return data;
+//     } 
+//     catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+
+// export const addContact = createAsyncThunk(
+//   "contacts/addContact",
+//   async (contact, thunkAPI) => {
+//     const {name, number, selected=false} = contact;
+//     try {
+//       const response = await axios.post("/contacts", { name, number, selected });
+//       return response.data;
+//     } 
+//     catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+
+// export const deleteContact = createAsyncThunk(
+//   "contacts/deleteContact",
+//   async (contactId, thunkAPI) => {
+//     try {
+//       const response = await axios.delete(`/contacts/${contactId}`);
+//       return response.data;
+//     } 
+//     catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+
+// export const toggleCompleted = createAsyncThunk(
+//   "contacts/toggleCompleted",
+//   async (contact, thunkAPI) => {
+//     try {
+//       const response = await axios.put(`/contacts/${contact.id}`, {
+//         selected: !contact.selected,
+//       });
+//       return response.data;
+//     } 
+//     catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
