@@ -3,19 +3,18 @@ import { Navigate } from 'react-router-dom';
 
 import { FormLogin } from "components/Forms/FormLogin/FormLogin"
 import {selectAuthetification} from 'redux/selectors';
-
+import { Section } from "components/Section/Section"
 
 export const LoginPage = () => { 
   
-  const authetification = useSelector(selectAuthetification);
-  if(authetification) return <Navigate to='/contacts' />
+  const authetificated = useSelector(selectAuthetification);
+  if(authetificated) return <Navigate to='/contacts' />
 
 
   return(
-    <>
-      <h2>Login Into Your Account</h2>
+    <Section title={'Login Into Your Account'}>
       <FormLogin />
-    </>
+    </Section>
   )
 }
 

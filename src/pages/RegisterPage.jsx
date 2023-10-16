@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 import {selectAuthetification} from 'redux/selectors';
+import { Section } from "components/Section/Section"
 // import { Formik, Field, Form } from "formik"
 
 import { FormRegister } from "components/Forms/FormRegister/FormRegister"
@@ -9,12 +10,11 @@ import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 
 export const RegisterPage = () => { 
   
-  const authetification = useSelector(selectAuthetification);
-  if(authetification) return <Navigate to='/contacts' />
+  const authetificated = useSelector(selectAuthetification);
+  if(authetificated) return <Navigate to='/contacts' />
 
   return(
-    <div>
-      <h2>Register Your Account</h2>
+    <Section title='Register Your Account'>
       
       <FormRegister />
       
@@ -40,7 +40,7 @@ export const RegisterPage = () => {
         </Form>
 
       </Formik> */}
-    </div>
+    </Section>
   )
 }
 

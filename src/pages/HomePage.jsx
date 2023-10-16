@@ -1,11 +1,10 @@
+import { Section } from "components/Section/Section"
 
 
 export const HomePage = () => { 
 
   return(
-    <div>
-      Home
-    </div>
+    <Section title={'Home'} />  
   )
 }
 
