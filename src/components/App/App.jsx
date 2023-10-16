@@ -7,6 +7,7 @@ import { Layout } from "./Layout";
 import { selectToken, selectAuthetification } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/operations';
 import { Container } from "./App.styled";
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 
 export const App = () => {
@@ -22,19 +23,24 @@ export const App = () => {
     dispatch(refreshUserThunk());
   }, [token, authetification, dispatch])
  
-  const Home = lazy(() => import('../../pages/Home'));
-  const Login = lazy(() => import('../../pages/Login'));
-  const Register = lazy(() => import('../../pages/Register'));
-  const Contacts = lazy(() => import('../../pages/Contacts'));
+  const HomePage = lazy(() => import('../../pages/HomePage'));
+  const LoginPage = lazy(() => import('../../pages/LoginPage'));
+  const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
+  const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
 
     return (
       <Container>
         <Routes>
           <Route path="/" element={ <Layout />}>
-            <Route index element= {<Home />} />
-            <Route path="login" element={ <Login /> } />
-            <Route path="register" element={ <Register /> } />
-            <Route path="contacts" element={ <Contacts /> } />
+            <Route index element= {<HomePage />} />
+            <Route path="login" element={ <LoginPage /> } />
+            <Route path="register" element={ <RegisterPage /> } />
+            <Route 
+              path="contacts" 
+              element={ 
+                <PrivateRoute redirecTo='/login'>
+                  <ContactsPage /> 
+                </PrivateRoute>} />
           </Route>
         </Routes>
       </Container>

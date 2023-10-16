@@ -5,7 +5,7 @@
 import { Container } from "components/App/App.styled";
 import { Phonebook } from 'components/Phonebook/Phonebook';
 
-export const Contacts = () => { 
+export const ContactsPage = () => { 
 
   // const authetification = useSelector(selectAuthetification);
 
@@ -16,4 +16,4 @@ export const Contacts = () => {
   )
 }
 
-export default Contacts
+export default ContactsPage

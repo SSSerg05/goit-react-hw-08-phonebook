@@ -5,7 +5,7 @@ import { FormLogin } from "components/Forms/FormLogin/FormLogin"
 import {selectAuthetification} from 'redux/selectors';
 
 
-export const Login = () => { 
+export const LoginPage = () => { 
   
   const authetification = useSelector(selectAuthetification);
   if(authetification) return <Navigate to='/contacts' />
@@ -19,4 +19,4 @@ export const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

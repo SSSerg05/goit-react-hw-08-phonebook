@@ -7,7 +7,7 @@ import {selectAuthetification} from 'redux/selectors';
 import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 
 
-export const Register = () => { 
+export const RegisterPage = () => { 
   
   const authetification = useSelector(selectAuthetification);
   if(authetification) return <Navigate to='/contacts' />
@@ -44,4 +44,4 @@ export const Register = () => {
   )
 }
 
-export default Register
+export default RegisterPage
