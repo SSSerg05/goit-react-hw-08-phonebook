@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'; // ES6'
-import { Title } from './Section.styled';
+import { Title, SectionApp } from './Section.styled';
 
 
 export const Section = ({ title, children }) => {
   return (
-    <section>
+    <SectionApp>
       { title && <Title>{ title }</Title> }
       { children }
-    </section>
+    </SectionApp>
   );
 }
 
