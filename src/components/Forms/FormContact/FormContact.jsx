@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { addContactThunk } from "redux/operations";
-import { FieldBox, FieldLabel, FieldPosition, FieldInput, Button } from "./FormContact.styled"
-import { selectContacts } from "redux/selectors";
-
+import { FieldBox, FieldLabel, FieldPosition, FieldInput, } from "./FormContact.styled"
+import { selectContacts, } from "redux/selectors";
+import { Button, } from '../../Forms/Buttons.styles';
 
 export const Form = () => {
   const dispatch = useDispatch();

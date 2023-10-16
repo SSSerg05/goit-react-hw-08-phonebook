@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'; // ES6'
 
 import { deleteContactThunk, toggleCompletedThunk, editContactThunk, } from "redux/operations";
 
-import { Card, Name, ButtonDelete, ButtonEdit, Checkbox } from './Contact.styled';
-
+import { Card, Name, Checkbox } from './Contact.styled';
+import { ButtonDelete, ButtonEdit } from '../../Forms/Buttons.styles';
 
 export const Contact = ({contact}) => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export const Contact = ({contact}) => {
 
   return (
     <Card>
-      
+
       <label>
         <Checkbox 
           type="checkbox"

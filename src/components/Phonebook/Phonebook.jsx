@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { MdAddIcCall } from 'react-icons/md';
 
 // redux
 import { requestContactsThunk } from "redux/operations";
@@ -8,13 +9,14 @@ import { selectError, selectLoading, selectAuthetification } from "redux/selecto
 // components
 import { Loader } from "components/Loader/Loader";
 import { Section } from "../Section/Section";
-import { Form } from "../Forms/FormContact/FormContact";
+// import { Form } from "../Forms/FormContact/FormContact";
 import { Search } from "./Search/Search";
 import { Filter } from "./Filter/Filter";
 import { ContactsList } from "./ContactsList/ContactsList";
 
 // style
 import { DeskPhonebook } from "./Phonebook.styled";
+import { ButtonAddContact } from "components/Forms/Buttons.styles";
 
 
 export const Phonebook = () => {
@@ -30,14 +32,19 @@ export const Phonebook = () => {
   }, [dispatch]);
 
   if (!authetification) return;
+
+  const handleAddContact = () => {dispatch()}
   
   return (
     <DeskPhonebook>
 
       <Section title={"Phonebook: HW-08"}>
-        <Form />
+        {/* <Form /> */}
+        <ButtonAddContact onClick={handleAddContact}>
+          <MdAddIcCall size={24} />
+        </ButtonAddContact>
       </Section>
-        
+
       <Section>
         <Search />
         <Filter />
