@@ -12,19 +12,21 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  /* z-index: 1200; */
+  background-color: rgba(100, 0, 0, 0.8);
+  z-index: 100;
 `
 
 export const BoxModal = styled.div`
   position: relative;
-  max-width: calc(100vw - 48px);
-  max-height: calc(100vh - 24px);
+  max-width: calc(100vw - 10px);
+  max-height: calc(100vh - 10px);
+  background-color: white;
+  z-index: 101;
 `
 
 export const ModalButtonClose = styled.button`
      position: absolute;
-     top: 64px;
+     top: 10px;
      right: 12px;
      border-radius: 4px;
 `

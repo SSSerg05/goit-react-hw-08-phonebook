@@ -5,7 +5,7 @@ import {
   addContactThunk, 
   deleteContactThunk,
   editContactThunk, 
-  toggleCompletedThunk } from "./operations";
+  toggleCompletedThunk, } from "./operations";
 
 const handlePending = state => {
   state.loading = true;
@@ -20,6 +20,7 @@ const contactsInitialState = {
   items: [],
   loading: false,
   error: null,
+  showModal: false,
 };
 
 const contactsSlice = createSlice({
@@ -72,13 +73,21 @@ const contactsSlice = createSlice({
       .addCase(toggleCompletedThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        const index = state.items.findIndex(
-          contact => contact.id === action.payload.id
-        );
-        state.items.splice(index, 1, action.payload);
+        // const index = state.items.findIndex(
+        //   contact => contact.id === action.payload.id
+        // );
+        // state.items.splice(index, 1, action.payload);
+        for (const contact of state.items) {
+          if (contact.id === action.payload) {
+            contact.selected = !contact.selected;
+            break;
+          }
+        }
       })
       .addCase(toggleCompletedThunk.rejected, handleRejected)
+      // default
       .addDefaultCase((state, action) => {})
 });
 
 export const contactsReducer = contactsSlice.reducer;
+

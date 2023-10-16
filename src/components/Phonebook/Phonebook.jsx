@@ -37,7 +37,7 @@ export const Phonebook = () => {
 
   if (!authetification) return;
 
-  const handleAddContact = () => {dispatch()}
+  const handleAddContact = () => {toggleModal()}
   
   // відкриття / закриття модалки
   const toggleModal = () => {
@@ -73,7 +73,7 @@ export const Phonebook = () => {
           <Modal
             // src={ selectedImage }
             // tags={ tagsSelectedImage }
-            onClose={ toggleModal }
+            onClose={ setShowModal }
           >
             <FormContact />
           </Modal> 

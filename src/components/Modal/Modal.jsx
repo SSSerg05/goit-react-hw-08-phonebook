@@ -1,88 +1,93 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useCallback, useEffect, useState, } from "react";
 import { createPortal } from "react-dom";
 import { MdClose } from 'react-icons/md';
-import PropTypes from 'prop-types';
 
-import { Loader } from "components/Loader/Loader";
-import { Overlay, BoxModal, ModalButtonClose, ModalImage, ModalTitle } from "./Modal.styled";
+// import PropTypes from 'prop-types';
+// import { Loader } from "components/Loader/Loader";
 
-const modalRoot = document.querySelector('#modal-root');
+// style
+import { Overlay, BoxModal, ModalButtonClose, ModalImage, ModalTitle, } from "./Modal.styled";
 
-export const Modal = ({children, src, tags, onClose}) => {
-  
+const MODAL_CONTAINER_ID = document.querySelector('#modal-root');
+
+
+export const Modal = ({children, src="", title="", onClose }) => {
+
   const [loaded, setLoaded ] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
+  // https://habr.com/ru/articles/736284/
+  const handleClose = useCallback((e) => {
 
-// const handleClickOpen = useCallback((e) => {
-//   setOpen(true)
-// }, [])
+      onClose?.();
+  }, [onClose]);
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
     setLoaded(true);
-    return window.removeEventListener('keydown', handleKeyDown)
   }, [loaded])
 
 
-  // flag loading img
+  useEffect(() => {
+
+    const handleKeyDown = e => {
+      console.log('handleKeyDown', e.code);
+      if (e.code === 'Escape') {
+        onClose?.();
+      }
+    }
+
+    const handleBackdropClick = e => { 
+      console.log('handleBackdropClick', e);
+      console.log(e.currentTarget === e.target);
+
+      if (e.currentTarget === e.target) { 
+         onClose?.();
+      }
+    }
+
+    window.addEventListener('click', handleBackdropClick);
+    window.addEventListener('keydown', handleKeyDown);
+
+
+    return () => {
+      window.removeEventListener('click', handleBackdropClick);
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+
+ }, [onClose])
+
+
   const onLoadedLargeImage = () => {
     setLoaded(false);
   }
 
-  // close modal for press in ESC
-  const handleKeyDown = useCallback(e => {
-    if (e.code === 'Escape') {
-      onClose();
-      // toggleModal();
-    }
-  }, [])
-
-
-
-  // відкриття / закриття модалки
-  const toggleModal = () => {
-    setShowModal( !showModal );
-  }
-
-  // close modal for click in backdrop || button
-  const handleBackdropClick = e => { 
-    if (e.currentTarget === e.target) { 
-      onClose();
-      // toggleModal();
-    }
-  }
-
-
 
   return createPortal(
-    <Overlay onClick={ handleBackdropClick }>
+    <Overlay onClick={ handleClose }>
        
         <BoxModal>
 
-          {loaded && <Loader /> }
+          {/* {loaded && <Loader /> } */}
           
           { children }
-          { src && (<ModalImage onLoad={ onLoadedLargeImage } src={ src } alt={ tags } /> )}
+          { src && (<ModalImage onLoad={ onLoadedLargeImage } src={ src } alt={ title } /> )}
           
-          {!loaded &&
-            <ModalButtonClose type="button" onClick={handleBackdropClick}>
+            <ModalButtonClose type="button" onClick={ handleClose }>
               <MdClose size={12}/>
-            </ModalButtonClose>}
+            </ModalButtonClose>
           
           { !loaded && 
             <ModalTitle>
-              { tags }
+              { title }
             </ModalTitle>
           }
         </BoxModal>
         
     </Overlay>
-  , modalRoot)
+  , MODAL_CONTAINER_ID)
 }
 
-Modal.propTypes = {
-  src : PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
-  onClose : PropTypes.func.isRequired,
-};
+// Modal.propTypes = {
+//   src : PropTypes.string.isRequired,
+//   tags: PropTypes.string.isRequired,
+//   onClose : PropTypes.func.isRequired,
+// };
