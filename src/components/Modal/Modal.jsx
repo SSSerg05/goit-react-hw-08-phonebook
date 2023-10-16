@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, } from "react";
+import React, { useCallback, useEffect, useRef, useState, } from "react";
 import { createPortal } from "react-dom";
 import { MdClose } from 'react-icons/md';
 
@@ -16,7 +16,8 @@ export const Modal = ({children, src="", title="", onClose }) => {
   const [loaded, setLoaded ] = useState(false);
 
   // https://habr.com/ru/articles/736284/
-  const handleClose = useCallback((e) => {
+  const rootRef = useRef(null);
+  const handleClose = useCallback(() => {
 
       onClose?.();
   }, [onClose]);
@@ -25,6 +26,11 @@ export const Modal = ({children, src="", title="", onClose }) => {
     setLoaded(true);
   }, [loaded])
 
+  const handleBackdropClick = e => { 
+    if (e.target instanceof Node && rootRef.current === e.target) {
+      onClose?.();
+    }
+  }
 
   useEffect(() => {
 
@@ -35,14 +41,11 @@ export const Modal = ({children, src="", title="", onClose }) => {
       }
     }
 
-    const handleBackdropClick = e => { 
-      console.log('handleBackdropClick', e);
-      console.log(e.currentTarget === e.target);
-
-      if (e.currentTarget === e.target) { 
-         onClose?.();
-      }
-    }
+    // const handleBackdropClick = e => { 
+    //   if (e.target instanceof Node && rootRef.current === e.target) {
+    //     onClose?.();
+    //   }
+    // }
 
     window.addEventListener('click', handleBackdropClick);
     window.addEventListener('keydown', handleKeyDown);
@@ -62,7 +65,7 @@ export const Modal = ({children, src="", title="", onClose }) => {
 
 
   return createPortal(
-    <Overlay onClick={ handleClose }>
+    <Overlay onClick={ (e) => handleClose(e) }>
        
         <BoxModal>
 
