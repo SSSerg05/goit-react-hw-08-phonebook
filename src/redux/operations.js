@@ -138,9 +138,9 @@ export const deleteContactThunk = createAsyncThunk(
   }
 );
 
-// update Contact
-export const patchContactThunk = createAsyncThunk(
-  "contacts/update:bnjvbhContact",
+// edit Contact
+export const editContactThunk = createAsyncThunk(
+  "contacts/editContact",
   async (contactId, thunkAPI) => {
     try {
       const { data } = await $instance.patch(`/contacts/${contactId}`);

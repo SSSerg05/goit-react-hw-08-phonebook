@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { 
   requestContactsThunk,
   addContactThunk, 
-  deleteContactThunk, 
+  deleteContactThunk,
+  editContactThunk, 
   toggleCompletedThunk } from "./operations";
 
 const handlePending = state => {
@@ -55,6 +56,17 @@ const contactsSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteContactThunk.rejected, handleRejected)
+      // editContact
+      .addCase(editContactThunk.pending, handlePending)
+      .addCase(editContactThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        // const index = state.items.findIndex(
+        //   contact => contact.id === action.payload.id
+        // );
+        // state.items.splice(index, 1);
+      })
+      .addCase(editContactThunk.rejected, handleRejected)      
       // select/unSelect contact
       .addCase(toggleCompletedThunk.pending, handlePending)
       .addCase(toggleCompletedThunk.fulfilled, (state, action) => {

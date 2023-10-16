@@ -15,7 +15,6 @@ export const Name = styled.p`
   padding: 4px;
   flex-grow: 1;
 `
-
 export const Button = styled.button`
   display: flex;
   align-items: center;
@@ -29,8 +28,7 @@ export const Button = styled.button`
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
-  color: #f44336;
-
+ 
   &:hover {
     color: white;
     background-color: #f44336;
@@ -41,6 +39,14 @@ export const Button = styled.button`
     background-color: red;
   }
 `
+export const ButtonDelete = styled(Button)`
+  color: #f44336;
+`
+
+export const ButtonEdit = styled(Button)`
+  color: darkgray;
+`
+
 export const Checkbox = styled.input`
   width: 24px;
   height: 24px;
