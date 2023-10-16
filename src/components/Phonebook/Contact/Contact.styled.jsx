@@ -9,7 +9,8 @@ export const Card = styled.div`
 `
 
 export const Name = styled.p`
-  min-width: 250px;
+  width: 100%;
+  /* min-width: 200px; */
   margin: 0;
   padding: 4px;
   flex-grow: 1;

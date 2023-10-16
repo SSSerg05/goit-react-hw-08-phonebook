@@ -13,8 +13,8 @@ export const FieldLabel = styled.label`
 export const FieldInput = styled.input`
     display: block;
 
-   // width: 100%;
-    min-width: 380px; // 380-30-30
+    width: 100%;
+    /* min-width: 210px; // 270-30-30 */
     outline: 1px solid rgba(33, 33, 33, 0.2);
     background-color: transparent;
     border-radius: 4px;

@@ -7,8 +7,9 @@ import { List, ListItem, } from './ContactsList.styled';
 
 export const ContactsList = () => {
   const visibleContacts = useSelector(selectVisibleContacts);
-
-  if (!visibleContacts.length) {
+  const showContacts = Array.isArray(visibleContacts) && visibleContacts.length > 0;
+  
+  if (!showContacts) {
     return (
       <p>Sorry, you don't have more contacts</p>
     )
