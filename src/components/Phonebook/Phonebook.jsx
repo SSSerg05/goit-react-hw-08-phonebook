@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MdAddIcCall } from 'react-icons/md';
+
 
 // redux
 import { requestContactsThunk } from "redux/operations";
@@ -9,10 +10,11 @@ import { selectError, selectLoading, selectAuthetification } from "redux/selecto
 // components
 import { Loader } from "components/Loader/Loader";
 import { Section } from "../Section/Section";
-// import { Form } from "../Forms/FormContact/FormContact";
+import { FormContact } from "../Forms/FormContact/FormContact";
 import { Search } from "./Search/Search";
 import { Filter } from "./Filter/Filter";
 import { ContactsList } from "./ContactsList/ContactsList";
+import { Modal } from 'components/Modal/Modal';
 
 // style
 import { DeskPhonebook } from "./Phonebook.styled";
@@ -27,6 +29,8 @@ export const Phonebook = () => {
   const error = useSelector(selectError);
   const authetification = useSelector(selectAuthetification);
 
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() =>  {
     dispatch(requestContactsThunk());
   }, [dispatch]);
@@ -35,10 +39,16 @@ export const Phonebook = () => {
 
   const handleAddContact = () => {dispatch()}
   
+  // відкриття / закриття модалки
+  const toggleModal = () => {
+    setShowModal( !showModal );
+  }
+
+
   return (
     <DeskPhonebook>
 
-      <Section title={"Phonebook: HW-08"}>
+      <Section>
         {/* <Form /> */}
         <ButtonAddContact onClick={handleAddContact}>
           <MdAddIcCall size={24} />
@@ -58,6 +68,16 @@ export const Phonebook = () => {
         
         <ContactsList />
       </Section>
+      
+      { showModal && (
+          <Modal
+            // src={ selectedImage }
+            // tags={ tagsSelectedImage }
+            onClose={ toggleModal }
+          >
+            <FormContact />
+          </Modal> 
+        )}
     </DeskPhonebook>
   )
 }

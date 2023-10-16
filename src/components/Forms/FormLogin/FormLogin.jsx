@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
 import { loginUserThunk } from '../../../redux/operations'
-
 
 export const FormLogin = () => {
   const dispatch = useDispatch()
@@ -12,7 +12,7 @@ export const FormLogin = () => {
 
   const handleSubmit = async (values) => {
     const { userEmail:email, userPassword:password } = values;
-    console.log(values);
+    // console.log(values);
     
     dispatch(
       loginUserThunk({
@@ -44,7 +44,6 @@ export const FormLogin = () => {
     }),
   });
 
-
   return (
     <FormikProvider value={configFormik}>
       <Form>
@@ -64,10 +63,11 @@ export const FormLogin = () => {
           helpText="Must be more 7 characters"
           type="password"
         />
-
         <div>
           <button type="submit">Sing In</button>
-          <button type="reset">Reset</button>
+        </div>
+        <div>
+          <NavLink to={'/register'} >Sing Up</NavLink>
         </div>
       </Form>
     </FormikProvider>

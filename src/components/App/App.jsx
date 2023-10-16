@@ -1,14 +1,12 @@
-import { useEffect, lazy } from 'react';
+import { useEffect, lazy, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from "react-router-dom";
 
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { Layout } from "./Layout";
-
 import { selectToken, selectAuthetification } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/operations';
 import { Container } from "./App.styled";
-import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
-
 
 export const App = () => {
 
@@ -27,6 +25,8 @@ export const App = () => {
   const LoginPage = lazy(() => import('../../pages/LoginPage'));
   const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
   const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
+
+
 
     return (
       <Container>

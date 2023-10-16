@@ -28,11 +28,11 @@ export const Contact = ({contact}) => {
 
       <Name>{ name + ': ' + number }</Name>
 
-      <ButtonEdit onClick={ handleEdit}>
+      <ButtonEdit type="button" onClick={ handleEdit}>
         <MdEdit size={24} /> 
       </ButtonEdit>
 
-      <ButtonDelete onClick={ handleDelete }>
+      <ButtonDelete type="button" onClick={ handleDelete }>
         <MdClose size={24} />
       </ButtonDelete>
      

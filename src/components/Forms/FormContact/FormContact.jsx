@@ -7,7 +7,7 @@ import { FieldBox, FieldLabel, FieldPosition, FieldInput, } from "./FormContact.
 import { selectContacts, } from "redux/selectors";
 import { Button, } from '../../Forms/Buttons.styles';
 
-export const Form = () => {
+export const FormContact = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts)
 
