@@ -17,6 +17,7 @@ export const FieldInput = styled.input`
     background-color: transparent;
     border-radius: 4px;
     border: none;
+    margin-top: 4px;
     padding: 8px 4px;
 
     &:hover,

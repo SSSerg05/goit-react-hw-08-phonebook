@@ -17,13 +17,13 @@ export const Search = ({value}) => {
   return (
     <FieldBox>
       <FieldLabel>Find contacts by name
-        {/* <FieldPosition> */}
+        <FieldPosition>
           <FieldInput
             type="text"
             value={value}
             onChange={handleSearchChange}
           />
-        {/* </FieldPosition> */}
+        </FieldPosition>
       </FieldLabel>
     </FieldBox>
   )
