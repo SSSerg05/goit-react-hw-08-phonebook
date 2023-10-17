@@ -49,8 +49,8 @@ export const Phonebook = () => {
     <DeskPhonebook>
 
       <Section>
-        {/* <Form /> */}
         <ButtonAddContact onClick={handleAddContact}>
+          Add contact
           <MdAddIcCall size={24} />
         </ButtonAddContact>
       </Section>

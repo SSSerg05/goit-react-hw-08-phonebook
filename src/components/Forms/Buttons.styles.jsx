@@ -34,7 +34,10 @@ export const ButtonEdit = styled(Button)`
 `
 
 export const ButtonAddContact = styled(Button)`
+  width: 150px;
+  justify-content: space-around;
   color: green;
+  background-color: lightgrey;
 `
 
 export const ButtonSaveContact = styled(Button)`
