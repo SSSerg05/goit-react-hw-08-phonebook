@@ -6,10 +6,10 @@ import { addContactThunk } from "redux/operations";
 import { selectContacts, } from "redux/selectors";
 
 // style
-import { FieldBox, FieldLabel, FieldPosition, FieldInput, } from "./FormContact.styled"
-import { Button, } from '../Buttons.styles';
+import { FieldBox, FieldLabel, FieldPosition, FieldInput, } from "../Forms.styled"
+import { ButtonSaveContact, } from '../Buttons.styles';
 
-export const FormContact = () => {
+export const FormContact = ({onClose}) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts)
 
@@ -37,6 +37,7 @@ export const FormContact = () => {
     }));
 
     form.reset();
+    onClose?.();
   }
 
   return (
@@ -71,7 +72,7 @@ export const FormContact = () => {
         </FieldLabel>
       </FieldBox>
 
-      <Button type="submit">Save</Button>
+      <ButtonSaveContact type="submit">Save</ButtonSaveContact>
     </form>
   )
 }

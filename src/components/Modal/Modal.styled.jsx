@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import {Button} from "../Forms/Buttons.styles"
 /*
  * Стили компонента Modal
  */
@@ -12,23 +13,28 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(100, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 100;
 `
 
 export const BoxModal = styled.div`
   position: relative;
-  max-width: calc(100vw - 10px);
-  max-height: calc(100vh - 10px);
+  max-width: calc(100vw - 36px);
+  width: 270px;
+  padding-top: 68px;
+  padding-bottom: 36px;
+  padding-left: 12px;
+  padding-right: 12px;
   background-color: white;
-  z-index: 101;
 `
 
-export const ModalButtonClose = styled.button`
-     position: absolute;
-     top: 10px;
-     right: 12px;
-     border-radius: 4px;
+export const ModalButtonClose = styled(Button)`
+  position: absolute;
+  top: 18px;
+  right: 0;
+  border-radius: 4px;
+  color: black;
+  background-color: grey;
 `
 
 export const ModalTitle = styled.div`

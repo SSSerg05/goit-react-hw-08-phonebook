@@ -36,3 +36,9 @@ export const ButtonEdit = styled(Button)`
 export const ButtonAddContact = styled(Button)`
   color: green;
 `
+
+export const ButtonSaveContact = styled(Button)`
+  margin-top: 48px;
+  width: 68px;
+  background-color: #1976d2;
+`

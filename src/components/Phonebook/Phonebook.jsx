@@ -73,9 +73,9 @@ export const Phonebook = () => {
           <Modal
             // src={ selectedImage }
             // tags={ tagsSelectedImage }
-            onClose={ setShowModal }
+            onClose={ toggleModal }
           >
-            <FormContact />
+            <FormContact onClose={ toggleModal }/>
           </Modal> 
         )}
     </DeskPhonebook>

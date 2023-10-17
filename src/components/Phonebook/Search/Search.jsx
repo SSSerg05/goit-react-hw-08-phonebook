@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setFindQuery } from "redux/findQuerySlice";
 
 // style
-import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../../Forms/FormContact/FormContact.styled"
+import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../../Forms/Forms.styled"
 
 
 export const Search = ({value}) => {
@@ -17,13 +17,13 @@ export const Search = ({value}) => {
   return (
     <FieldBox>
       <FieldLabel>Find contacts by name
-        <FieldPosition>
+        {/* <FieldPosition> */}
           <FieldInput
             type="text"
             value={value}
             onChange={handleSearchChange}
           />
-        </FieldPosition>
+        {/* </FieldPosition> */}
       </FieldLabel>
     </FieldBox>
   )
