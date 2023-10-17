@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import {useField } from 'formik';
 
-
-// import './TextInputLiveFeedback.module.css'
+// style
+import { 
+  FieldBox, 
+  FieldLabel, 
+  FieldPosition, 
+  FieldInput, 
+  FieldHelpText, 
+  FieldFeedback} from "../Forms.styled"
 
 
 export const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
@@ -17,38 +23,48 @@ export const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
     (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
   return (
-    <div className={`form-control items-center space-between ${
-        showFeedback ? (meta.error ? 'error' : 'success') : ''
-      }`}
-    >
-      {/* <div className="flex items-center space-between"> */}
+      <FieldBox
+        valid = {showFeedback ? (meta.error ? 'error' : 'success') : 'default'}
+      >
+        
+        <FieldLabel htmlFor={props.id}>
+          { label } 
+          
+          <FieldPosition >
+            
+            <FieldInput
+              valid = {showFeedback ? (meta.error ? 'invalid' : 'valid') : 'default'}
+              type="text"
+              name="name"
+              // pattern="^[a-zA-Zа-яА-ЯіІїЇєЄ]+(([' \-][a-zA-Zа-яА-ЯіІїЇєЄ])?[a-zA-Zа-яА-ЯіІїЇєЄ]*)*$"
+              // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              {...props}
+              {...field}
+              aria-describedby={`${props.id}-feedback ${props.id}-help`}
+              onFocus={handleFocus}
+            />
 
-      <label htmlFor={props.id}>{label}
-        <input
-          className={`${
-            showFeedback ? (meta.error ? 'invalid' : 'valid') : ''
-          }`}        
-          {...props}
-          {...field}
-          aria-describedby={`${props.id}-feedback ${props.id}-help`}
-          onFocus={handleFocus}
-        />
-      </label>
+          </FieldPosition>
 
-      { showFeedback && (
-          <div
+        </FieldLabel>
+        
+        { showFeedback && (
+          <FieldFeedback 
             id={`${props.id}-feedback`}
             aria-live="polite"
-            className="my-feedback text-sm"
           >
             {meta.error ?? '✓'}
-          </div>
-      ) }
+          </FieldFeedback>
+        )}
 
-      {/* </div> */}
-      <div className="text-xs" id={`${props.id}-help`} tabIndex="-1">
-        {helpText}
-      </div>
-    </div>
+        <FieldHelpText
+          id={`${props.id}-help`}
+          tabIndex="-1"
+        >
+          {helpText}
+        </FieldHelpText>
+
+      </FieldBox>
   );
 };

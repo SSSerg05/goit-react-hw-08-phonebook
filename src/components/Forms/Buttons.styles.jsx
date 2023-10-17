@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+const myColor = 'green'
+
 export const Button = styled.button`
   display: flex;
   align-items: center;
@@ -11,9 +13,12 @@ export const Button = styled.button`
   margin-right: 12px;
   border: none;
   border-radius: 4px;
-  background-color: transparent;
+  /* background-color: transparent; */
   cursor: pointer;
-  color: #fff;
+  color: ${(props) =>
+    props.primary ? '#f0f0f0' : '#1c1c1c'};
+  background-color: ${(props) =>
+     props.primary ? '#337ab7' : '#f0f0f0f'};
  
   &:hover {
     color: white;
@@ -44,4 +49,8 @@ export const ButtonSaveContact = styled(Button)`
   margin-top: 48px;
   width: 68px;
   background-color: #1976d2;
+  /* color: ${(props) =>
+    props.primary ? '#f0f0f0' : '#1c1c1c'};
+  background-color: ${(props) =>
+     props.primary ? myColor : '#f0f0f0f'}; */
 `
