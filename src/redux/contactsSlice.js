@@ -4,8 +4,8 @@ import {
   requestContactsThunk,
   addContactThunk, 
   deleteContactThunk,
-  editContactThunk, 
-  toggleCompletedThunk, } from "./operations";
+  toggleCompletedThunk,
+  updateContactThunk, } from "./operations";
 
 const handlePending = state => {
   state.loading = true;
@@ -57,17 +57,18 @@ const contactsSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteContactThunk.rejected, handleRejected)
-      // editContact
-      .addCase(editContactThunk.pending, handlePending)
-      .addCase(editContactThunk.fulfilled, (state, action) => {
+      // editContact/updateContact
+      .addCase(updateContactThunk.pending, handlePending)
+      .addCase(updateContactThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        // const index = state.items.findIndex(
-        //   contact => contact.id === action.payload.id
-        // );
-        // state.items.splice(index, 1);
+        const index = state.items.findIndex(
+          contact => contact.id === action.payload.id
+        );
+        state.items[index].name = action.payload.name;
+        state.items[index].number = action.payload.number;
       })
-      .addCase(editContactThunk.rejected, handleRejected)      
+      .addCase(updateContactThunk.rejected, handleRejected)      
       // select/unSelect contact
       .addCase(toggleCompletedThunk.pending, handlePending)
       .addCase(toggleCompletedThunk.fulfilled, (state, action) => {

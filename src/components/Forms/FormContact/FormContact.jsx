@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from 'yup';
 
-import { addContactThunk } from "redux/operations";
+import { addContactThunk, updateContactThunk } from "redux/operations";
 import { selectContacts, } from "redux/selectors";
 
 // style
@@ -14,15 +14,38 @@ import { ButtonSaveContact as ButtonReset, ButtonSaveContact, ButtonsBox, } from
 import { TextInputLiveFeedback } from "../TextInputLiveFeedback/TextInputLiveFeedback";
 
 
-export const FormContact = ({onClose}) => {
+export const FormContact = ({contact, onClose}) => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts)
-
+  const contacts = useSelector(selectContacts);
+ 
   // onSubmit
   const handleSubmit = values => {
-    // e.preventDefault();
-    //const form = e.target;
-    const {contactName:name, contactNumber:number} = values; //form.elements;
+    if(contact.id) {
+      handleUpdate(values);
+      return
+    }
+
+    handleNewSave(values);
+  }
+
+  // Update
+  const handleUpdate = values => {
+    const {contactName:name, contactNumber:number} = values;
+
+    dispatch(updateContactThunk({
+      id: contact.id,
+      name, 
+      number,
+      selected: contact.selected,
+    }));
+    toast.success(`${name} - Update in phonebook`);
+    onClose?.();
+  }
+
+
+  // Save New
+  const handleNewSave = values => {
+    const {contactName:name, contactNumber:number} = values;
 
     const isFound = (name) => {
       const findName = name.trim().toLowerCase();
@@ -35,43 +58,24 @@ export const FormContact = ({onClose}) => {
       return;
     }
 
-
     dispatch(addContactThunk({
       name: name, 
       number: number
     }));
 
     toast.success(`${name} - Add in phonebook`);
-    // form.reset();
     onClose?.();
   }
 
 
 // https://stackoverflow.com/questions/52483260/validate-phone-number-with-yup
-// >. Update .<
-// http://yup-phone.js.org/
-
-// I've created a yup-phone module that uses google-libphonenumber which gives accurate validation checks and can be installed directly from github
-
-// npm install --save yup yup-phone.
-
-// Check Usage
-
-// const Yup = require('yup');
-// require('yup-phone');
-
-// // validate any phone number (defaults to India for country)
-// const phoneSchema = Yup.string().phone().required();
-// phoneSchema.isValid('9876543210'); // → true
-
 // ==== configFormik
 const nameRegExp = "^[a-zA-Zа-яА-ЯіІїЇєЄ]+(([' \\-][a-zA-Zа-яА-ЯіІїЇєЄ])?[a-zA-Zа-яА-ЯіІїЇєЄ]*)*$"
-//const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 const phoneRegExp="\\+?\\d{1,4}?[\\-.\\s]?\\(?\\d{1,3}?\\)?[\\-.\\s]?\\d{1,4}[\\-.\\s]?\\d{1,4}[\\-.\\s]?\\d{1,9}"
 const configFormik = useFormik({
   initialValues: { 
-    contactName: "", 
-    contactNumber: "", 
+    contactName: contact.name, 
+    contactNumber: contact.number, 
   },
   onSubmit: async (values) => handleSubmit(values),
   validationSchema: Yup.object({
@@ -115,8 +119,13 @@ return (
       />
 
       <ButtonsBox>
-        <ButtonSaveContact type="submit">Save</ButtonSaveContact>
-        <ButtonReset type="reset">Reset</ButtonReset>
+        <ButtonSaveContact type="submit">
+          {contact.id ? 'Update': 'Save' }
+        </ButtonSaveContact>
+
+        { !contact.id &&
+          <ButtonReset type="reset">Reset</ButtonReset>
+        }
       </ButtonsBox>
 
     </Form>

@@ -75,7 +75,7 @@ export const Phonebook = () => {
             // tags={ tagsSelectedImage }
             onClose={ toggleModal }
           >
-            <FormContact onClose={ toggleModal }/>
+            <FormContact contact={{name:"", number:""}} onClose={ toggleModal }/>
           </Modal> 
         )}
     </DeskPhonebook>
