@@ -26,7 +26,6 @@ export const FormLogin = () => {
   // ==== configForm
   const configFormik = useFormik({
     initialValues: { 
-      userName: "", 
       userEmail: "", 
       userPassword: "", 
     },

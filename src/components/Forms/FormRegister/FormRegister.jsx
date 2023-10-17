@@ -23,7 +23,7 @@ export const FormRegister = () => {
     
   }
 
-  // ==== configForm
+  // ==== configFormik
   const configFormik = useFormik({
     initialValues: { 
       userName: "", 
