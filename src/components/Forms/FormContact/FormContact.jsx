@@ -83,17 +83,11 @@ const configFormik = useFormik({
     contactName: Yup.string()
       .min(3, 'Must be at least 3 characters')
       .max(40, 'Must be less than 40 characters')
-      .matches(
-        nameRegExp,
-        "Wrong characters"
-      )
+      .matches( nameRegExp, "Wrong characters")
       .required('Username is required'),
 
     contactNumber: Yup.string()
-      .matches( 
-        phoneRegExp, 
-        "Wrong number"
-      )
+      .matches( phoneRegExp, "Wrong number")
       .required('Phone number is required'),
   }),
 });
