@@ -10,6 +10,7 @@ const colorsValid = {
 export const FieldBox = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 
   margin-bottom: 1rem;
@@ -54,8 +55,10 @@ export const FieldFeedback = styled.div`
   font-size: 0.875rem;
 `
 export const FieldHelpText = styled.div`
-  position: absolute;
+  /* position: absolute;
   bottom: -14px;
-  left: 4px;
+  left: 4px; */
+  padding-left: 4px;
+  padding-right: 4px;
   font-size: 0.75rem;
 `

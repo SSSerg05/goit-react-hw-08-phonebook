@@ -36,6 +36,7 @@ export const FormContact = ({onClose}) => {
       number: number.value
     }));
 
+    toast.success(`${name.value} - Add in phonebook`);
     form.reset();
     onClose?.();
   }

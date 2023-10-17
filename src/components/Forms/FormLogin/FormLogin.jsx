@@ -3,8 +3,11 @@ import { NavLink } from "react-router-dom";
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
 import { loginUserThunk } from '../../../redux/operations'
+
+//style
+import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
+import { ButtonSaveContact as ButtonSignIn } from '../Buttons.styles';
 
 export const FormLogin = () => {
   const dispatch = useDispatch()
@@ -63,12 +66,11 @@ export const FormLogin = () => {
           helpText="Must be more 7 characters"
           type="password"
         />
-        <div>
-          <button type="submit">Sing In</button>
-        </div>
-        <div>
-          <NavLink to={'/register'} >Sing Up</NavLink>
-        </div>
+        
+        <ButtonSignIn type="submit">Sing In</ButtonSignIn>
+        
+        <NavLink to={'/register'} >Sing Up</NavLink>
+        
       </Form>
     </FormikProvider>
   );

@@ -34,7 +34,7 @@ export const ModalButtonClose = styled(Button)`
   right: 0;
   border-radius: 4px;
   color: black;
-  background-color: grey;
+  background-color: #e2e5e8;
 `
 
 export const ModalTitle = styled.div`
