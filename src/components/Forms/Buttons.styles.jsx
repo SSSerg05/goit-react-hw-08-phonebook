@@ -40,8 +40,16 @@ export const ButtonAddContact = styled(Button)`
 `
 
 export const ButtonSaveContact = styled(Button)`
-  margin-top: 48px;
+  /* margin-top: 48px; */
   width: 68px;
   color: white;
   background-color: #1976d2;
+`
+
+export const ButtonsBox = styled.div`
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 `

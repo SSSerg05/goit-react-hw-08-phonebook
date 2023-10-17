@@ -2,8 +2,10 @@ import { useDispatch } from 'react-redux';
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
 import { registerUserThunk } from '../../../redux/operations'
+// style
+import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
+import { ButtonSaveContact as ButtonSignUp, ButtonSaveContact as ButtonReset, ButtonsBox } from '../Buttons.styles';
 
 export const FormRegister = () => {
   const dispatch = useDispatch()
@@ -81,10 +83,11 @@ export const FormRegister = () => {
           type="password"
         />
 
-        <div>
-          <button type="submit">Sing Up</button>
-          <button type="reset">Reset</button>
-        </div>
+        <ButtonsBox>
+          <ButtonSignUp type="submit">Sing Up</ButtonSignUp>
+          <ButtonReset type="reset">Reset</ButtonReset>
+        </ButtonsBox>
+
       </Form>
     </FormikProvider>
   );

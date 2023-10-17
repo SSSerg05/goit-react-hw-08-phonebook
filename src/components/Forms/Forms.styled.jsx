@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
+
 
 const colorsValid = { 
   error: 'red', 
@@ -62,3 +64,25 @@ export const FieldHelpText = styled.div`
   padding-right: 4px;
   font-size: 0.75rem;
 `
+
+export const Link = styled(NavLink)`
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+  text-decoration: none;
+  
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  /* background-color: #1976d2; */
+  color:  #1976d2;;
+
+  &:hover,
+  &:focus {
+    color: orangered;
+  }
+  &:active {
+    color: red;
+  }
+`;

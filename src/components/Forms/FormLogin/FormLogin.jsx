@@ -7,8 +7,8 @@ import { loginUserThunk } from '../../../redux/operations'
 
 //style
 import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
-import { ButtonSaveContact as ButtonSignIn } from '../Buttons.styles';
-
+import { ButtonSaveContact as ButtonSignIn, ButtonsBox } from '../Buttons.styles';
+import { Link } from '../Forms.styled';
 export const FormLogin = () => {
   const dispatch = useDispatch()
 
@@ -67,10 +67,10 @@ export const FormLogin = () => {
           type="password"
         />
         
-        <ButtonSignIn type="submit">Sing In</ButtonSignIn>
-        
-        <NavLink to={'/register'} >Sing Up</NavLink>
-        
+        <ButtonsBox>
+          <ButtonSignIn type="submit">Sing In</ButtonSignIn>
+          <Link to={'/register'} >Go Sing Up</Link>
+        </ButtonsBox>
       </Form>
     </FormikProvider>
   );
