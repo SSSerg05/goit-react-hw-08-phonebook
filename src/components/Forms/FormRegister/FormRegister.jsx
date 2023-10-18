@@ -70,7 +70,7 @@ export const FormRegister = () => {
           label="Email"
           id="userEmail"
           name="userEmail"
-          placeholder="mister@gmail.com" 
+          placeholder="user@mail.com" 
           helpText=""
           type="email"
         />
