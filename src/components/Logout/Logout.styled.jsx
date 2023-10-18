@@ -1,4 +1,14 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled/macro";
+
+
+export const UserName = styled.span`
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: black;
+`;
 
 export const LoginContainer = styled.button`
   display: flex;
@@ -17,19 +27,21 @@ export const LoginContainer = styled.button`
   &:hover {
     color: white;
     background-color: orangered;
+    & ${UserName} {
+      color: white;
+      background-color: orangered;
+     } 
   }
 
   &:active {
     color: white;
     background-color: red;
+    & ${UserName} {
+      color: white;
+      background-color: red;
+     } 
   }
 `;
 
-export const UserName = styled.p`
-  padding: 0;
-  margin: 0;
-  font-weight: 500;
-  font-size: 0.85rem;
-  color: black;
-`
+
 

@@ -66,13 +66,11 @@ export const Phonebook = () => {
         { error && <p>Error... { error }</p>}
         { loading && !error && <b>Request in progress...</b> }
         
-        <ContactsList />
+        {!error && <ContactsList />}
       </Section>
       
       { showModal && (
           <Modal
-            // src={ selectedImage }
-            // tags={ tagsSelectedImage }
             onClose={ toggleModal }
           >
             <FormContact contact={{name:"", number:""}} onClose={ toggleModal }/>

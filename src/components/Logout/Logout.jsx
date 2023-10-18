@@ -16,7 +16,7 @@ export const Login = () => {
   }
 
   return (
-    <LoginContainer type='button' onClick={handleLogout}>
+    <LoginContainer type='button' onClick={ handleLogout }>
       <UserName>User: {user.name}</UserName>
       Logout
     </LoginContainer>

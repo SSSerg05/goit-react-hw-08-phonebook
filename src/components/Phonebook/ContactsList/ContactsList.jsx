@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { selectVisibleContacts } from 'redux/selectors';
 import { Contact } from '../Contact/Contact';
-import { ErrorBox, ListContacts, ListItem, } from './ContactsList.styled';
+import { WarningBox, ListContacts, ListItem, } from './ContactsList.styled';
 
 
 export const ContactsList = () => {
@@ -11,7 +11,7 @@ export const ContactsList = () => {
   
   if (!showContacts) {
     return (
-      <ErrorBox>Sorry, you don't have more contacts</ErrorBox>
+      <WarningBox>Sorry, you don't have more contacts</WarningBox>
     )
   }
 

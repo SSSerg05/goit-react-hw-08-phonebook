@@ -17,11 +17,11 @@ export const ListItem = styled.li`
   }
 `
 
-export const ErrorBox = styled.div`
+export const WarningBox = styled.div`
   width: 100%;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  color: red;
+  color: orangered;
 `
 
 export const ItemButton = styled.button`
