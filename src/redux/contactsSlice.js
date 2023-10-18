@@ -5,7 +5,8 @@ import {
   addContactThunk, 
   deleteContactThunk,
   toggleCompletedThunk,
-  updateContactThunk, } from "./operations";
+  updateContactThunk,
+  clearContactsThunk, } from "./operations";
 
 const handlePending = state => {
   state.loading = true;
@@ -30,14 +31,21 @@ const contactsSlice = createSlice({
   },
   extraReducers: (builder) => 
     builder
+
       // requestContacts (getAllContacts)
       .addCase(requestContactsThunk.pending, handlePending)
       .addCase(requestContactsThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.items = action.payload;
+        //state.items = action.payload;
+        state.items = action.payload.map(item => {
+          const selected=false;
+          return {...item, selected}
+        })
+        console.log(state.items);
       })
       .addCase(requestContactsThunk.rejected, handleRejected)
+
       // addContact
       .addCase(addContactThunk.pending, handlePending)
       .addCase(addContactThunk.fulfilled, (state, action) => {
@@ -46,6 +54,7 @@ const contactsSlice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(addContactThunk.rejected, handleRejected)
+
       // deleteContact
       .addCase(deleteContactThunk.pending, handlePending)
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
@@ -57,6 +66,7 @@ const contactsSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteContactThunk.rejected, handleRejected)
+
       // editContact/updateContact
       .addCase(updateContactThunk.pending, handlePending)
       .addCase(updateContactThunk.fulfilled, (state, action) => {
@@ -68,7 +78,17 @@ const contactsSlice = createSlice({
         state.items[index].name = action.payload.name;
         state.items[index].number = action.payload.number;
       })
-      .addCase(updateContactThunk.rejected, handleRejected)      
+      .addCase(updateContactThunk.rejected, handleRejected)
+
+      // clearContacts (only front) if user logout
+      .addCase(clearContactsThunk.pending, handlePending)
+      .addCase(clearContactsThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = action.payload;
+      })
+      .addCase(clearContactsThunk.rejected, handleRejected)
+
       // select/unSelect contact
       .addCase(toggleCompletedThunk.pending, handlePending)
       .addCase(toggleCompletedThunk.fulfilled, (state, action) => {

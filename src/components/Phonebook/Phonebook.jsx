@@ -32,11 +32,12 @@ export const Phonebook = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() =>  {
+    if (!authetification) return
+
     dispatch(requestContactsThunk());
-  }, [dispatch]);
+  }, [dispatch, authetification]);
 
-  if (!authetification) return;
-
+  
   const handleAddContact = () => {toggleModal()}
   
   // відкриття / закриття модалки

@@ -17,6 +17,7 @@ export const Layout = () => {
       <Container>
         <Header>
           <Nav>
+
             <List>
               <li><Link to='/'>Home</Link></li>
               { (authetification && ( 
@@ -30,6 +31,7 @@ export const Layout = () => {
                 </>
               )}
             </List>
+            
             { authetification && ( <Login /> ) }
 
           </Nav>

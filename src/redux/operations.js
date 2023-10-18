@@ -153,6 +153,20 @@ export const updateContactThunk = createAsyncThunk(
   }
 );
 
+// logout user -> clear Contacts 
+export const clearContactsThunk = createAsyncThunk(
+  "contacts/clearContacts",
+  async (_, thunkAPI) => {
+    try {
+      const data = [];
+      return data;
+    } 
+    catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 // check filter
 export const toggleCompletedThunk = createAsyncThunk(
   "contacts/toggleCompleted",

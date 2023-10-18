@@ -8,7 +8,7 @@ export const Login = () => {
 
   const user = useSelector(selectUserData);
   const authetificated = useSelector(selectAuthetification);
-  if (!authetificated) return
+  if (!authetificated) return (<></>)
 
   
   const handleLogout = () => {
