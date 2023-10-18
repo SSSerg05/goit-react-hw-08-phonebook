@@ -14,8 +14,7 @@ export const FormLogin = () => {
 
   const handleSubmit = async (values) => {
     const { userEmail:email, userPassword:password } = values;
-    // console.log(values);
-    
+   
     dispatch(
       loginUserThunk({
         email,
@@ -52,7 +51,7 @@ export const FormLogin = () => {
           label="Email"
           id="userEmail"
           name="userEmail"
-          placeholder="mister@gmail.com" 
+          placeholder="user@mail.com" 
           helpText=""
           type="email"
         />
