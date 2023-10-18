@@ -16,18 +16,17 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   padding: 8px 0;
-  margin-bottom: 16px;
   border-bottom: 1px solid black;
-
-  > nav {
-    display: flex;
-  }
 `;
+
+export const Nav = styled.nav`
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+`
 
 export const Logo = styled.p`
   font-weight: 700;
