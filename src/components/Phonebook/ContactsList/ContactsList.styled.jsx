@@ -6,6 +6,7 @@ export const ListContacts = styled.ul`
   padding-left: 0;
   list-style: none;
   overflow-y: auto;
+  width: 100%;
   max-height: calc(100vh - 421px); // 70+16+50+30-16+32+16+104+16+27+16+30+30=391
 `
 export const ListItem = styled.li`
@@ -14,6 +15,13 @@ export const ListItem = styled.li`
   &:nth-of-type(odd) {
     background-color: lightcyan;
   }
+`
+
+export const ErrorBox = styled.div`
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: red;
 `
 
 export const ItemButton = styled.button`
