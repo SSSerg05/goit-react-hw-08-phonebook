@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const List = styled.ul`
+export const ListContacts = styled.ul`
   text-decoration: none;
   margin: 0;
   padding-left: 0;
