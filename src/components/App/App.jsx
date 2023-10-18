@@ -8,6 +8,7 @@ import { selectToken, selectAuthetification } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/operations';
 import { Container } from "./App.styled";
 
+
 export const App = () => {
 
   const dispatch = useDispatch();
@@ -27,23 +28,22 @@ export const App = () => {
   const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
 
 
-
     return (
-      <Container>
-        <Routes>
-          <Route path="/" element={ <Layout />}>
-            <Route index element= {<HomePage />} />
-            <Route path="login" element={ <LoginPage /> } />
-            <Route path="register" element={ <RegisterPage /> } />
-            <Route 
-              path="contacts" 
-              element={ 
-                <PrivateRoute redirecTo='/login'>
-                  <ContactsPage /> 
-                </PrivateRoute>} />
-          </Route>
-        </Routes>
-      </Container>
+        <Container>
+          <Routes>
+            <Route path="/" element={ <Layout />}>
+              <Route index element= {<HomePage />} />
+              <Route path="login" element={ <LoginPage /> } />
+              <Route path="register" element={ <RegisterPage /> } />
+              <Route 
+                path="contacts" 
+                element={ 
+                  <PrivateRoute redirecTo='/login'>
+                    <ContactsPage /> 
+                  </PrivateRoute>} />
+            </Route>
+          </Routes>
+        </Container>
     );
 };
 

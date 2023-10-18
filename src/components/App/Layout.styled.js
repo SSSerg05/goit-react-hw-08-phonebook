@@ -1,5 +1,12 @@
-import styled from "styled-components";
+import styled from "styled-components"; //{ ThemeProvider }
 import { NavLink } from "react-router-dom";
+
+// export const Theme = styled.ThemeProvider`
+//   background-color: ${(props) =>
+//     props.theme.background-color}; 
+//   color: ${(props) =>
+//     props.theme.color};
+// `;
 
 export const Container = styled.div`
   max-width: 960px;
