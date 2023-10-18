@@ -6,7 +6,7 @@ export const List = styled.ul`
   padding-left: 0;
   list-style: none;
   overflow-y: auto;
-  max-height: calc(100vh - 391px); // 70+16+50+30-16+32+16+104+16+27+16+30=391
+  max-height: calc(100vh - 421px); // 70+16+50+30-16+32+16+104+16+27+16+30+30=391
 `
 export const ListItem = styled.li`
   background-color: lightsteelblue;
