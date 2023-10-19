@@ -34,17 +34,13 @@ export const FieldName = styled.div`
 `
 
 export const Name = styled.p`
-  /* width: 100%; */
   margin: 0;
   padding: 2px 8px;
-  flex-grow: 1;
 `
 
 export const Number = styled.p`
-  /* width: 100%; */
   margin: 0;
   padding: 2px 8px;
-  flex-grow: 1;
 `
 
 export const Checkbox = styled.input`
