@@ -70,7 +70,7 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContactThunk.rejected, handleRejected)
 
-      // editContact/updateContact
+      // updateContact
       .addCase(updateContactThunk.pending, handlePending)
       .addCase(updateContactThunk.fulfilled, (state, action) => {
         state.loading = false;

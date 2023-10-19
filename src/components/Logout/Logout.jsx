@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { LoginContainer, UserName } from "./Logout.styled"
 import { selectAuthetification, selectUserData } from "redux/selectors"
-import { logoutUserThunk } from "redux/operations";
+import { clearContactsThunk, logoutUserThunk } from "redux/operations";
 
 export const Login = () => {
   const dispath = useDispatch();
@@ -11,8 +11,9 @@ export const Login = () => {
   if (!authetificated) return (<></>)
 
   
-  const handleLogout = () => {
-    dispath(logoutUserThunk())
+  const handleLogout = () => { 
+    dispath(logoutUserThunk());   // прибираемо авторизацію в authSlice
+    dispath(clearContactsThunk()); // очищуємо список контактів в contactsSlice
   }
 
   return (
