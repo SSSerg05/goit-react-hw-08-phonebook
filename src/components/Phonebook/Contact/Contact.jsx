@@ -2,13 +2,14 @@ import { useDispatch } from 'react-redux';
 import { MdClose, MdEdit } from 'react-icons/md';
 import PropTypes from 'prop-types'; // ES6'
 
-import { deleteContactThunk, toggleCompletedThunk, } from "redux/operations";
+import { deleteContactThunk, } from "redux/operations";
 
 import { Card, Name, Checkbox } from './Contact.styled';
 import { ButtonDelete, ButtonEdit } from '../../Forms/Buttons.styles';
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
 import { FormContact } from 'components/Forms/FormContact/FormContact';
+import { toggleCompleted } from 'redux/contactsSlice';
 
 export const Contact = ({contact}) => {
   const dispatch = useDispatch();
@@ -17,11 +18,9 @@ export const Contact = ({contact}) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleDelete = () => dispatch(deleteContactThunk(id));
-  const handleToggle = () => dispatch(toggleCompletedThunk(contact));
-
-  const handleEdit = () => {
-    toggleModal()
-  };
+  // const handleToggle = () => dispatch(toggleCompletedThunk(contact));
+  const handleToggle = () => dispatch(toggleCompleted(contact));
+  const handleEdit = () => { toggleModal() };
 
   // відкриття / закриття модалки
   const toggleModal = () => {
@@ -51,8 +50,6 @@ export const Contact = ({contact}) => {
 
       { showModal && (
           <Modal
-            // src={ selectedImage }
-            // tags={ tagsSelectedImage }
             onClose={ toggleModal }
           >
             <FormContact 
@@ -71,5 +68,6 @@ Contact.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
+      selected: PropTypes.bool,
     }).isRequired
 }

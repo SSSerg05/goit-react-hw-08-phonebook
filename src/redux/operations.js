@@ -167,19 +167,4 @@ export const clearContactsThunk = createAsyncThunk(
   }
 );
 
-// check filter
-export const toggleCompletedThunk = createAsyncThunk(
-  "contacts/toggleCompleted",
-//   async (contact, thunkAPI) => {
-//     try {
-//       const response = await $instance.put(`/contacts/${contact.id}`, {
-//         selected: !contact.selected,
-//       });
-//       return response.data;
-//     } 
-//     catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-);
 

@@ -4,7 +4,6 @@ import {
   requestContactsThunk,
   addContactThunk, 
   deleteContactThunk,
-  toggleCompletedThunk,
   updateContactThunk,
   clearContactsThunk, } from "./operations";
 
@@ -28,6 +27,12 @@ const contactsSlice = createSlice({
   name: "contacts",
   initialState: contactsInitialState,
   reducers: {
+    // select/unselect contact
+    toggleCompleted(state, action) {
+      const index = state.items.findIndex(
+        contact => contact.id === action.payload.id);
+      state.items[index].selected = !state.items[index].selected;
+    },
   },
   extraReducers: (builder) => 
     builder
@@ -37,12 +42,10 @@ const contactsSlice = createSlice({
       .addCase(requestContactsThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        //state.items = action.payload;
         state.items = action.payload.map(item => {
           const selected=false;
-          return {...item, selected}
+          return { ...item, selected }
         })
-        console.log(state.items);
       })
       .addCase(requestContactsThunk.rejected, handleRejected)
 
@@ -89,26 +92,10 @@ const contactsSlice = createSlice({
       })
       .addCase(clearContactsThunk.rejected, handleRejected)
 
-      // select/unSelect contact
-      .addCase(toggleCompletedThunk.pending, handlePending)
-      .addCase(toggleCompletedThunk.fulfilled, (state, action) => {
-        state.loading = false;
-        state.error = null;
-        // const index = state.items.findIndex(
-        //   contact => contact.id === action.payload.id
-        // );
-        // state.items.splice(index, 1, action.payload);
-        for (const contact of state.items) {
-          if (contact.id === action.payload) {
-            contact.selected = !contact.selected;
-            break;
-          }
-        }
-      })
-      .addCase(toggleCompletedThunk.rejected, handleRejected)
       // default
       .addDefaultCase((state, action) => {})
 });
 
 export const contactsReducer = contactsSlice.reducer;
+export const { toggleCompleted, } = contactsSlice.actions;
 
