@@ -44,7 +44,7 @@ export const FormRegister = () => {
 
       userEmail: Yup.string()
         .matches(
-          /^[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i,
+          /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
           'Invalid email address'
         )
         .required('Email is required'),
@@ -67,11 +67,12 @@ export const FormRegister = () => {
           type="text"
         />
         <TextInputLiveFeedback
+          icon='mail'
           label="Email"
           id="userEmail"
           name="userEmail"
           placeholder="user@mail.com" 
-          helpText=""
+          helpText="x-_+x.xx@xxxx.xx"
           type="email"
         />
         <TextInputLiveFeedback

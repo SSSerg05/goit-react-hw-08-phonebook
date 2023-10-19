@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // https://mockapi.io
 // https://6525265667cfb1e59ce6bb61.mockapi.io  - HW-07
@@ -32,9 +34,11 @@ export const registerUserThunk = createAsyncThunk(
 
       const { data } = await $instance.post('/users/signup', userData);
       setToken(data.token)
+      toast.success('Yahoo!!! You registred');
       return data;
 
     } catch (e) {
+      toast.error('Sorry. Cannot restration this email');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
