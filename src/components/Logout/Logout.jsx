@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LoginContainer, UserName } from "./Logout.styled"
 import { selectAuthetification, selectUserData } from "redux/selectors"
 import { clearContactsThunk, logoutUserThunk } from "redux/operations";
+import { MdAccountCircle } from "react-icons/md";
 
 export const Login = () => {
   const dispath = useDispatch();
@@ -18,8 +19,9 @@ export const Login = () => {
 
   return (
     <LoginContainer type='button' onClick={ handleLogout }>
-      <UserName>User: {user.name}</UserName>
-      Logout
+      <MdAccountCircle size={24}/>
+      <UserName>{user.name}</UserName>
+      
     </LoginContainer>
   )
 }
