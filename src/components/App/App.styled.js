@@ -22,15 +22,15 @@ export const Container = styled.div`
     color: #010101;
 
     @media screen and (min-width: 360px) {
-      min-width: 361px;
+      width: 360px;
     }
 
     @media screen and (min-width: 768px) {
-      min-width: 769px;
+      min-width: 510px;
     }
 
-    @media screen and (min-width: 1240px) {
-      min-width: 1241px;
-    }
+    /* @media screen and (min-width: 1024px) {
+      min-width: 1024px;
+    } */
 `;
   

@@ -17,7 +17,6 @@ import { ContactsList } from "./ContactsList/ContactsList";
 import { Modal } from 'components/Modal/Modal';
 
 // style
-import { DeskPhonebook } from "./Phonebook.styled";
 import { ButtonAddContact } from "components/Forms/Buttons.styles";
 
 
@@ -47,8 +46,7 @@ export const Phonebook = () => {
 
 
   return (
-    <DeskPhonebook>
-
+    <>
       <Section>
         <ButtonAddContact onClick={handleAddContact}>
           Add contact
@@ -77,6 +75,6 @@ export const Phonebook = () => {
             <FormContact contact={{name:"", number:""}} onClose={ toggleModal }/>
           </Modal> 
         )}
-    </DeskPhonebook>
+    </>
   )
 }

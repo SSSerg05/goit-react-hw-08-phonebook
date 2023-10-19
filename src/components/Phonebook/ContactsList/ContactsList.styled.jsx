@@ -7,7 +7,8 @@ export const ListContacts = styled.ul`
   list-style: none;
   overflow-y: auto;
   width: 100%;
-  max-height: calc(100vh - 421px); // 70+16+50+30-16+32+16+104+16+27+16+30+30=391
+  max-height: calc(100vh - 391px); // 70+16+50+30-16+32+16+104+16+27+16+30+30=391
+  min-height: 240px;
 `
 export const ListItem = styled.li`
   background-color: lightsteelblue;

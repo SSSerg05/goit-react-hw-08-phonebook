@@ -1,7 +1,7 @@
 import styled from "@emotion/styled/macro";
 
 export const Title = styled.h3`
-  min-width: 270px;
+  /* min-width: 270px; */
   margin: 0;
   padding: 0;
   margin-bottom: 16px;

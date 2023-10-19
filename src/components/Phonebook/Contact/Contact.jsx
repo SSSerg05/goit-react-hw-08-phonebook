@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { MdClose, MdEdit } from 'react-icons/md';
+import { MdClose, MdEdit, MdAccountBox, MdOutlinePhoneAndroid,} from 'react-icons/md';
 import PropTypes from 'prop-types'; // ES6'
 
 import { deleteContactThunk, } from "redux/operations";
 
-import { Card, Name, Checkbox } from './Contact.styled';
+import { Card, Name, Checkbox, Number, FieldContact, FieldName, FieldNumber } from './Contact.styled';
 import { ButtonDelete, ButtonEdit } from '../../Forms/Buttons.styles';
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
@@ -38,14 +38,24 @@ export const Contact = ({contact}) => {
         />
       </label>
 
-      <Name>{ name + ': ' + number }</Name>
+      <FieldContact>
+        <FieldName>
+          <MdAccountBox size={18} />
+          <Name> { name } </Name>
+        </FieldName>
+    
+        <FieldNumber>
+          <MdOutlinePhoneAndroid size={18} />
+          <Number> { number } </Number>
+        </FieldNumber>
+      </FieldContact>
 
       <ButtonEdit type="button" onClick={ handleEdit }>
-        <MdEdit size={24} /> 
+        <MdEdit size={18} /> 
       </ButtonEdit>
 
       <ButtonDelete type="button" onClick={ handleDelete }>
-        <MdClose size={24} />
+        <MdClose size={18} />
       </ButtonDelete>
 
       { showModal && (
