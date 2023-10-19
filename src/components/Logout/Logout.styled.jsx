@@ -1,65 +1,73 @@
 import styled from "@emotion/styled/macro";
 
 
-export const UserName = styled.span`
-  display: block;
-  padding: 0;
+export const LogoutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  min-width: 75px;
+  max-width: 120px;
+  padding: 4px;
+  color: #1976d2;
+`;
+
+export const LoginText = styled.p`
   margin: 0;
-  font-weight: 500;
+  padding: 0;
   font-size: 0.85rem;
   color: black;
 `;
 
-export const LoginContainer = styled.button`
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-
-  border-radius: 4px;
-  border: none;
-  outline: none;
-
-  padding: 4px 16px;
-
-  &::before {
-    content: attr(text);
-  }
-
-  &:hover::before {
-    content: attr(hover-text);
-  }
-
-  &:hover {
-    color: white;
-    background-color: orangered;
-    & ${UserName} {
-      color: white;
-      background-color: orangered;
-     } 
-  }
-
-  &:active {
-    color: white;
-    background-color: red;
-    & ${UserName} {
-      color: white;
-      background-color: red;
-     } 
-  }
+export const LogoutText = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: white;
 `;
 
-// .change-photos:hover .change-photo:nth-of-type(1) {
-//   display: none;
-// }
+export const LogoutOverlay = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    content: "";
 
-// .change-photos:hover .change-photo:nth-of-type(2) {
-//   display: block;
-// }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-// .change-photos:hover {
-//   cursor: pointer;
-// }
+    background-color: orangered;
+    color: white;
+    
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`;
 
+export const LogoutLink = styled.a`
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    color: transparent;
+    background-color: transparent;
+
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover ${LogoutOverlay} { 
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;

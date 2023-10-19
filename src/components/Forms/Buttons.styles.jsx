@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled/macro";
 
 export const Button = styled.button`
   display: flex;
@@ -33,6 +33,7 @@ export const ButtonEdit = styled(Button)`
 
 export const ButtonAddContact = styled(Button)`
   width: 150px;
+  height: 37px;
   justify-content: space-around;
   color: green;
   background-color: #e2e5e8;
@@ -51,4 +52,8 @@ export const ButtonsBox = styled.div`
   align-items: center;
   justify-content: center;
   gap: 24px;
+`
+export const TextButton = styled.span`
+  display: inline-block;
+  font-size: 1rem;
 `

@@ -17,7 +17,7 @@ import { ContactsList } from "./ContactsList/ContactsList";
 import { Modal } from 'components/Modal/Modal';
 
 // style
-import { ButtonAddContact } from "components/Forms/Buttons.styles";
+import { ButtonAddContact, TextButton } from "components/Forms/Buttons.styles";
 
 
 export const Phonebook = () => {
@@ -49,7 +49,7 @@ export const Phonebook = () => {
     <>
       <Section>
         <ButtonAddContact onClick={handleAddContact}>
-          Add contact
+          <TextButton>Add contact</TextButton>
           <MdAddIcCall size={24} />
         </ButtonAddContact>
       </Section>
