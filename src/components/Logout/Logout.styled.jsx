@@ -4,7 +4,6 @@ import styled from "@emotion/styled/macro";
 export const UserName = styled.span`
   display: block;
   padding: 0;
-  padding-left: 4px;
   margin: 0;
   font-weight: 500;
   font-size: 0.85rem;
@@ -32,7 +31,7 @@ export const LoginContainer = styled.button`
   &:hover::before {
     content: attr(hover-text);
   }
-  
+
   &:hover {
     color: white;
     background-color: orangered;
@@ -52,5 +51,15 @@ export const LoginContainer = styled.button`
   }
 `;
 
+// .change-photos:hover .change-photo:nth-of-type(1) {
+//   display: none;
+// }
 
+// .change-photos:hover .change-photo:nth-of-type(2) {
+//   display: block;
+// }
+
+// .change-photos:hover {
+//   cursor: pointer;
+// }
 

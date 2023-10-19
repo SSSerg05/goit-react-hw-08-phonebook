@@ -18,10 +18,13 @@ export const Login = () => {
   }
 
   return (
-    <LoginContainer type='button' onClick={ handleLogout }>
+    <LoginContainer 
+      type='button' 
+      onClick={ handleLogout }
+      text={user.name}
+      hover-text={'Logout'}>
       <MdAccountCircle size={24}/>
-      <UserName>{user.name}</UserName>
-      
+      {/* <UserName>{user.name}</UserName> */}
     </LoginContainer>
   )
 }
