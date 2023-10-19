@@ -31,7 +31,7 @@ export const BoxModal = styled.div`
 export const ModalButtonClose = styled(Button)`
   position: absolute;
   top: 18px;
-  right: 0;
+  right: 12px;
   border-radius: 4px;
   color: black;
   background-color: #e2e5e8;
