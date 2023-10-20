@@ -38,6 +38,12 @@ const filtersConfig = {
   whitelist: ['status'],
 }
 
+const themeConfig = {
+  key: 'theme',
+  storage,
+  whitelist: ['status'],
+}
+
 // redux-persist + store
 export const store = configureStore({
   reducer: {
@@ -45,7 +51,7 @@ export const store = configureStore({
     contacts: persistReducer(contactsConfig, contactsReducer),
     filters: persistReducer(filtersConfig, filtersReducer),
     findQuery: findQueryReducer,
-    theme: themeReducer,
+    theme: persistReducer(themeConfig, themeReducer),
   },
   middleware: getDefaultMiddleware => 
     getDefaultMiddleware({

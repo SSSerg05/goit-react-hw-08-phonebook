@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { statusTheme } from "./constants";
 
 const themeInitialState = {
-  status: statusTheme.light,
+  status: statusTheme.light.status,
 };
 
 const themeSlice = createSlice({
@@ -10,7 +10,7 @@ const themeSlice = createSlice({
   initialState: themeInitialState,
   reducers: {
     setStatusTheme(state, action) {
-      state.status = action.payload;
+      state.status = action.payload.status;
     },
   },
 });
