@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { statusFilters, statusTheme } from 'redux/constants';
+import { statusFilters, } from 'redux/constants';
 
 
 // User authetification

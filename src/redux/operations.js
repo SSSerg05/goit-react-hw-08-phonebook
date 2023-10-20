@@ -54,6 +54,7 @@ export const loginUserThunk = createAsyncThunk(
       return data;
 
     } catch (e) {
+      toast.error('Sorry. Wrong login data');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -66,6 +67,11 @@ export const refreshUserThunk = createAsyncThunk(
 
     const state = thunkAPI.getState();
     const token = state.auth.token;
+
+    // Якщо не має токену вийти, не роблячи рефреш
+    if (token === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
 
     try {
 
