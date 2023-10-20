@@ -13,10 +13,18 @@ export const Theme = () => {
   const dispatch = useDispatch();
   const theme = useSelector(selectStatusTheme);
   
-  const handleThemeChange = theme => dispatch(setStatusTheme(theme));
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const handleChangeTheme = () => {
+    const nextTheme = theme ?? 'dark';
+    dispatch(setStatusTheme(nextTheme));
+  };
+
 
   return (
-    <ThemeLink onClick={() => handleThemeChange(statusTheme[theme])}>
+    <ThemeLink onClick={ handleChangeTheme }>
       { (theme === 'light' && (
           <IoSunny size={24} />
         )) || (
