@@ -72,7 +72,7 @@ export const FormRegister = () => {
           id="userEmail"
           name="userEmail"
           placeholder="user@mail.com" 
-          helpText="x-_+x.xx@xxxx.xx"
+          helpText="x.0-9_+x@x.0-9x.xx"
           type="email"
         />
         <TextInputLiveFeedback
