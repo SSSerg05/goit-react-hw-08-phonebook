@@ -63,10 +63,6 @@ export const LogoutLink = styled.a`
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover ${LogoutOverlay} { 
-    /* flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-    
     opacity: 1;
     transform: translateY(0);
   }
