@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  padding: 16px 0;
+  padding: 8px 0;
   border-bottom: 1px solid black;
 `;
 
@@ -25,24 +25,16 @@ export const Nav = styled.nav`
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    height: 37px;
 `
-
-export const Logo = styled.p`
-  font-weight: 700;
-  margin: 0;
-`;
 
 export const List = styled.ul`
   display: flex;
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
 `;
 
 export const Link = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
-  text-decoration: none;
   color: black;
   font-weight: 500;
 

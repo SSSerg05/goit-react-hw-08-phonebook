@@ -13,7 +13,6 @@ export const LogoutContainer = styled.div`
   border-radius: 4px;
   min-width: 75px;
   max-width: 120px;
-  padding: 4px;
   color: #1976d2;
 `;
 

@@ -5,16 +5,7 @@ import { Section } from "components/Section/Section"
 export const HomePage = () => { 
 
   return(
-    <>
     <Section title={"Phonebook: HW-08"} /> 
-    {/* <Section>
-      <DivParent> 
-        Parent
-        <DivSecond>Second</DivSecond>
-        <DivThree>Three</DivThree>
-      </DivParent>
-    </Section>  */}
-    </>
   )
 }
 
