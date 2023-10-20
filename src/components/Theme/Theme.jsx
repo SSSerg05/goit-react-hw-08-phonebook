@@ -11,16 +11,14 @@ import { ThemeLink } from './Theme.styled'
 export const Theme = () => {
   const dispatch = useDispatch();
   const theme = useSelector(selectStatusTheme);
-  console.log(theme);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
 
   const handleChangeTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    console.log('nt',nextTheme);
-    dispatch(setStatusTheme(nextTheme));
+    const overTheme = theme === 'light' ? 'dark' : 'light';
+    dispatch(setStatusTheme(overTheme));
   };
 
 
