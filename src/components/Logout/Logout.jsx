@@ -9,7 +9,7 @@ import { selectAuthetification, selectUserData } from "redux/selectors"
 import { clearContactsThunk, logoutUserThunk } from "redux/operations";
 
 
-export const Login = () => {
+export const Logout = () => {
   const dispath = useDispatch();
 
   const user = useSelector(selectUserData);
@@ -43,4 +43,4 @@ export const Login = () => {
   )
 }
 
-export default Login;
+export default Logout;

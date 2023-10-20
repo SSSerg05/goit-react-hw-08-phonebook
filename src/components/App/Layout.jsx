@@ -4,13 +4,13 @@ import { Outlet } from "react-router-dom";
 
 import { Loader } from "../Loader/Loader"
 import { selectAuthetification } from 'redux/selectors';
-import Login from 'components/Logout/Logout';
+import Logout from 'components/Logout/Logout';
 import { Container, Header, Link, List, Nav } from "./Layout.styled.js";
 
 
 export const Layout = () => {
   
-  const authetification = useSelector(selectAuthetification);
+  const authetificated = useSelector(selectAuthetification);
 
   return (
     // <Theme theme={ligthTheme}>
@@ -20,7 +20,7 @@ export const Layout = () => {
 
             <List>
               <li><Link to='/'>Home</Link></li>
-              { (authetification && ( 
+              { (authetificated && ( 
                 <>
                   <li><Link to='/contacts'>Contacts</Link></li>
                 </>
@@ -32,7 +32,7 @@ export const Layout = () => {
               )}
             </List>
             
-            { authetification && ( <Login /> ) }
+            { authetificated && ( <Logout /> ) }
 
           </Nav>
         </Header>
