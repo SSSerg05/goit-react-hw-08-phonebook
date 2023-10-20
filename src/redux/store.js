@@ -17,6 +17,7 @@ import { authReducer } from "./authSlice";
 import { contactsReducer } from "./contactsSlice";
 import { filtersReducer } from "./filtersSlice";
 import { findQueryReducer } from "./findQuerySlice";
+import { themeReducer } from "./themeSlice";
 
 
 const authConfig = {
@@ -44,6 +45,7 @@ export const store = configureStore({
     contacts: persistReducer(contactsConfig, contactsReducer),
     filters: persistReducer(filtersConfig, filtersReducer),
     findQuery: findQueryReducer,
+    theme: themeReducer,
   },
   middleware: getDefaultMiddleware => 
     getDefaultMiddleware({

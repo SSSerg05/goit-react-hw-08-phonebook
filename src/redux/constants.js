@@ -3,3 +3,14 @@ export const statusFilters = Object.freeze({
   active: "active",
   selected: "selected",
 })
+
+export const statusTheme = Object.freeze({
+  light: {
+    color: "black",
+    backgroundColor: "white",
+  },
+  dark: {
+    color: "white",
+    backgroundColor: "black",
+  },
+})

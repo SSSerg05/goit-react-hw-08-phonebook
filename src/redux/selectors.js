@@ -1,5 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { statusFilters } from 'redux/constants';
+import { statusFilters, statusTheme } from 'redux/constants';
+
 
 // User authetification
 export const selectUserLoading = state => state.auth.loading;
@@ -16,6 +17,9 @@ export const selectError = state => state.contacts.error;
 // Filters
 export const selectStatusFilter = state => state.filters.status;
 export const selectFindQuery = state => state.findQuery;
+
+//Theme
+export const selectStatusTheme = state => state.theme.status;
 
 export const selectVisibleContacts = createSelector(
   [ selectContacts, selectStatusFilter, selectFindQuery],
