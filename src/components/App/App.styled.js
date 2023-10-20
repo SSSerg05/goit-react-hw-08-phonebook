@@ -26,11 +26,7 @@ export const Container = styled.div`
     }
 
     @media screen and (min-width: 768px) {
-      min-width: 510px;
+      width: 510px;
     }
-
-    /* @media screen and (min-width: 1024px) {
-      min-width: 1024px;
-    } */
 `;
   

@@ -9,14 +9,13 @@ import { NavLink } from "react-router-dom";
 // `;
 
 export const Container = styled.div`
-  /* max-width: 720px; */
   min-width: 270px;
   margin: 0 auto;
   padding: 0 16px;
 `;
 
 export const Header = styled.header`
-  padding: 8px 0;
+  padding: 16px 0;
   border-bottom: 1px solid black;
 `;
 

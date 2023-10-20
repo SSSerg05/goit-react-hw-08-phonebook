@@ -13,14 +13,14 @@ export const App = () => {
 
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  const authetification = useSelector(selectAuthetification)
+  const authetificated = useSelector(selectAuthetification)
 
   // autoLogin current user (refresh)
   useEffect(() => {
-    if (!token || authetification) return;
+    if (!token || authetificated) return;
 
     dispatch(refreshUserThunk());
-  }, [token, authetification, dispatch])
+  }, [token, authetificated, dispatch])
  
   const HomePage = lazy(() => import('../../pages/HomePage'));
   const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -28,23 +28,23 @@ export const App = () => {
   const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
 
 
-    return (
-        <Container>
-          <Routes>
-            <Route path="/" element={ <Layout />}>
-              <Route index element= {<HomePage />} />
-              <Route path="login" element={ <LoginPage /> } />
-              <Route path="register" element={ <RegisterPage /> } />
-              <Route 
-                path="contacts" 
-                element={ 
-                  <PrivateRoute redirecTo='/login'>
-                    <ContactsPage /> 
-                  </PrivateRoute>} />
-            </Route>
-          </Routes>
-        </Container>
-    );
+  return ( 
+    <Container>
+      <Routes>
+        <Route path="/" element={ <Layout />}>
+          <Route index element= {<HomePage />} />
+          <Route path="login" element={ <LoginPage /> } />
+          <Route path="register" element={ <RegisterPage /> } />
+          <Route 
+            path="contacts" 
+            element={ 
+              <PrivateRoute redirecTo='/login'>
+                <ContactsPage /> 
+              </PrivateRoute>} />
+        </Route>
+      </Routes>
+    </Container>
+  );
 };
 
 export default App
