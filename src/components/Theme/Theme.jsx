@@ -1,12 +1,11 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoMoonOutline, IoSunny } from 'react-icons/io5';
 // redux
 import { selectStatusTheme } from 'redux/selectors';
 import { setStatusTheme } from 'redux/themeSlice';
-import { statusTheme } from 'redux/constants';
 // style
 import { ThemeLink } from './Theme.styled'
-
 
 
 export const Theme = () => {
