@@ -26,7 +26,7 @@ export const LoginText = styled.p`
 export const LogoutText = styled.p`
   margin: 0;
   padding: 0;
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: white;
 `;
 
