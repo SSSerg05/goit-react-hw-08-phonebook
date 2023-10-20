@@ -6,6 +6,7 @@ import { Loader } from "../Loader/Loader"
 import { selectAuthetification } from 'redux/selectors';
 import Logout from 'components/Logout/Logout';
 import { Container, Header, Link, List, Nav } from "./Layout.styled.js";
+import { Theme } from 'components/Theme/Theme';
 
 
 export const Layout = () => {
@@ -32,7 +33,7 @@ export const Layout = () => {
               )}
             </List>
             
-            { authetificated && ( <Logout /> ) }
+            { authetificated && ( <Logout /> ) || ( <Theme />) }
 
           </Nav>
         </Header>

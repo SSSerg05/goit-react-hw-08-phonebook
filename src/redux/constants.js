@@ -5,11 +5,13 @@ export const statusFilters = Object.freeze({
 })
 
 export const statusTheme = Object.freeze({
-  light: {
+  light: "light",
+  lightConfig: {
     color: "black",
     backgroundColor: "white",
   },
-  dark: {
+  dark: "dark",
+  darkConfig: {
     color: "white",
     backgroundColor: "black",
   },
