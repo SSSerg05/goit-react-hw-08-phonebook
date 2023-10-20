@@ -33,7 +33,7 @@ export const Layout = () => {
               )}
             </List>
             
-            { authetificated && ( <Logout /> ) || ( <Theme />) }
+            { (authetificated && ( <Logout /> )) || ( <Theme />) }
 
           </Nav>
         </Header>
