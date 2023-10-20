@@ -25,7 +25,7 @@ export const BoxModal = styled.div`
   padding-bottom: 36px;
   padding-left: 12px;
   padding-right: 12px;
-  background-color: white;
+  background-color: var(--color-bg);
 `
 
 export const ModalButtonClose = styled(Button)`
@@ -33,8 +33,8 @@ export const ModalButtonClose = styled(Button)`
   top: 18px;
   right: 12px;
   border-radius: 4px;
-  color: black;
-  background-color: #e2e5e8;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 `
 
 export const ModalTitle = styled.div`
@@ -43,8 +43,8 @@ export const ModalTitle = styled.div`
   left: 12px;
   width: calc(100% - 24px);
   padding-left: 12px;
-  color: grey;
-  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 `
 
 export const ModalImage = styled.img`

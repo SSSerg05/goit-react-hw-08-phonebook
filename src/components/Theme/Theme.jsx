@@ -14,8 +14,13 @@ export const Theme = () => {
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
+
+    const a = Array.from(document.querySelectorAll('a'));
+    a.map(node => node.setAttribute('data-theme', theme))
+    
   }, [theme]);
 
+  
   const handleChangeTheme = () => {
     const overTheme = theme === 'light' ? 'dark' : 'light';
     dispatch(setStatusTheme(overTheme));

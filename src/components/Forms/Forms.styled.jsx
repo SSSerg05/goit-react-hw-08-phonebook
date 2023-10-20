@@ -14,17 +14,20 @@ export const FieldBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   margin-bottom: 1rem;
   margin-top: 1rem;
 
   color: ${(props) =>
-    colorsValid[props.valid] ?? 'black'}; 
+    colorsValid[props.valid] ?? 'gray'}; 
 `
 
 export const FieldLabel = styled.label`
   display: block;
   width: 100%;
+  color: var(--color-text);
 `
 
 export const FieldInput = styled.input`
@@ -37,11 +40,13 @@ export const FieldInput = styled.input`
   border: none;
   margin-top: 4px;
   padding: 8px 4px;
+  color: var(--color-text);
 
   &:hover,
   &:focus-within {
     outline: 1px solid blue;
     background-color: rgb(232, 240, 254);
+    color: black;
     transition: outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `
@@ -57,9 +62,6 @@ export const FieldFeedback = styled.div`
   font-size: 0.875rem;
 `
 export const FieldHelpText = styled.div`
-  /* position: absolute;
-  bottom: -14px;
-  left: 4px; */
   padding-left: 4px;
   padding-right: 4px;
   font-size: 0.75rem;
@@ -75,7 +77,6 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   border-radius: 4px;
   border: none;
-  /* background-color: #1976d2; */
   color:  #1976d2;;
 
   &:hover,

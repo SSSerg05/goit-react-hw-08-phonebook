@@ -1,7 +1,6 @@
 import styled from "@emotion/styled/macro";
 
 export const Title = styled.h3`
-  /* min-width: 270px; */
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
@@ -10,6 +9,7 @@ export const Title = styled.h3`
   font-weight: 700;
   letter-spacing: 0.05rem;
   text-align: center;
+  color: var(--color-text);
 `
 
 export const SectionApp = styled.section`
