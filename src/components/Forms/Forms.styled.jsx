@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-
 const colorsValid = { 
   error: 'red', 
   success: 'green', 
@@ -28,6 +27,7 @@ export const FieldLabel = styled.label`
   display: block;
   width: 100%;
   color: var(--color-text);
+  background-color: var(--color-bg);
 `
 
 export const FieldInput = styled.input`
@@ -35,12 +35,13 @@ export const FieldInput = styled.input`
   width: calc(100% - 2*4px);
   outline: 1px solid  ${(props) =>
     colorsValid[props.valid] ?? 'rgba(33, 33, 33, 0.2)'}; 
-  background-color: transparent;
+  background-color:  var(--color-bgi);
+  color: var(--color-text);
   border-radius: 4px;
   border: none;
   margin-top: 4px;
   padding: 8px 4px;
-  color: var(--color-text);
+
 
   &:hover,
   &:focus-within {

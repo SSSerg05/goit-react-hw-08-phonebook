@@ -48,6 +48,7 @@ body[data-theme='light'],
 a[data-theme='light'] {
   --color-text: hsl(200, 15%, 8%);
   --color-bg: hsl(0, 0%, 98%);
+  --color-bgi: hsl(0, 0%, 80%);
   --color-ui-base: hsl(0, 0%, 100%);
 
   --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -57,6 +58,7 @@ body[data-theme='dark'],
 a[data-theme='dark'] {
   --color-text: hsl(0, 0%, 100%);
   --color-bg: hsl(240, 2%, 20%);
+  --color-bgi: hsl(0, 0%, 40%);
   --color-ui-base: hsl(209, 23%, 22%);
 
   --shadow: rgba(245, 245, 245, 0.2) 0px 0px 8px;

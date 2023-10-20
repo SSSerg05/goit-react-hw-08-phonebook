@@ -11,7 +11,7 @@ import { selectError, selectLoading, selectAuthetification } from "redux/selecto
 import { Loader } from "components/Loader/Loader";
 import { Section } from "../Section/Section";
 import { FormContact } from "../Forms/FormContact/FormContact";
-import { Search } from "./Search/Search";
+import { Search } from "../Forms/Search/Search";
 import { Filter } from "./Filter/Filter";
 import { ContactsList } from "./ContactsList/ContactsList";
 import { Modal } from 'components/Modal/Modal';
