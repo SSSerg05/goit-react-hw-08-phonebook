@@ -60,6 +60,7 @@ export const Contact = ({contact}) => {
 
       { showModal && (
           <Modal
+            title={'Edit/Update'}
             onClose={ toggleModal }
           >
             <FormContact 

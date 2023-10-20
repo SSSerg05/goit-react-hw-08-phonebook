@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { createPortal } from "react-dom";
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // import { Loader } from "components/Loader/Loader";
 import { MdClose } from 'react-icons/md';
@@ -55,27 +55,27 @@ export class Modal extends Component {
 
   render() {
     const { children, src='', title='' } = this.props;
-    const { loaded } = this.state;
+    // const { loaded } = this.state;
     
     return createPortal(
       <Overlay onClick={ this.handleBackdropClick }>
        
         <BoxModal>
-
-          {/* {loaded && <Loader /> } */}
-
-          { children }
-          { src && (<ModalImage onLoad={  this.onLoadedLargeImage } src={ src } alt={ title } /> )}
-
-            <ModalButtonClose type="button" onClick={ this.handleCloseButtonClick }>
-              <MdClose size={12} />
-            </ModalButtonClose>
-
-          { !loaded && 
+          { title && 
             <ModalTitle>
               { title }
             </ModalTitle>
           }
+          
+          { children }
+
+          { src && (<ModalImage onLoad={  this.onLoadedLargeImage } src={ src } alt={ title } /> )}
+
+          <ModalButtonClose type="button" onClick={ this.handleCloseButtonClick }>
+            <MdClose size={12} />
+          </ModalButtonClose>
+
+
         </BoxModal>
       
       </Overlay>
@@ -83,8 +83,8 @@ export class Modal extends Component {
   };
 }
 
-// Modal.propTypes = {
-//   src : PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   onClose : PropTypes.func.isRequired,
-// };
+Modal.propTypes = {
+  src : PropTypes.string,
+  title: PropTypes.string,
+  onClose : PropTypes.func.isRequired,
+};
