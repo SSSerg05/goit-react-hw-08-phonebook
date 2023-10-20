@@ -16,25 +16,3 @@ export const SectionApp = styled.section`
   margin-top: 16px;
   margin-bottom: 16px;
 `
-
-// export const DivSecond = styled.div`
-//   width: 50px;
-//   height: 50px;
-//   background-color: green;
-// `
-// export const DivThree = styled.div`
-//   width: 100px;
-//   height: 100px;
-//   background-color: yellow;
-// `
-
-// export const DivParent = styled.div`
-//   background-color: red;
-
-//   &:hover {
-//     background-color: blue;
-//     & ${DivSecond},  ${DivThree} {
-//       background-color: blue;
-//     } 
-//   }
-// `
