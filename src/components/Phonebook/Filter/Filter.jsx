@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 import { statusFilters } from "redux/constants"; 
-import { selectStatusFilter } from "redux/selectors";
-import { setStatusFilter } from "redux/filtersSlice";
+import { selectStatusFilter } from "redux/filters/selectors";
+import { setStatusFilter } from "redux/filters/filtersSlice";
 
 import { Btn, FilterBox } from "./Filter.styled";
 

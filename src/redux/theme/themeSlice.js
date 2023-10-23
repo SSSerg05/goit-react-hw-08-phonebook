@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { statusTheme } from "./constants";
+import { statusTheme } from "../constants";
 
 const themeInitialState = {
   status: statusTheme.light,

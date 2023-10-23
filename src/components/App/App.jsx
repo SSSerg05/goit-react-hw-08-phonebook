@@ -1,20 +1,17 @@
 import { useEffect, lazy, } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, } from 'react-redux';
 import { Route, Routes } from "react-router-dom";
 
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import { Layout } from "./Layout";
-import { selectToken, selectAuthetification } from 'redux/selectors';
-import { refreshUserThunk } from 'redux/authOperations';
+import { refreshUserThunk } from 'redux/auth/authOperations';
 import { Container } from "./App.styled";
 
 
 export const App = () => {
 
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
-  const authetificated = useSelector(selectAuthetification)
 
   // autoLogin current user (refresh)
   useEffect(() => {

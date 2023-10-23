@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { $instance } from "./constants";
+import { $instance } from "../constants";
 
 // Contacts
 //====================

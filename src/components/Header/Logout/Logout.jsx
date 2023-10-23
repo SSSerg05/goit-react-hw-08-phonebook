@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdAccountCircle, MdLogout } from "react-icons/md";
 
 //redux
-import { logoutUserThunk } from "redux/authOperations";
-import { clearContactsThunk } from "redux/contactsOperations";
-import { selectAuthetification, selectUserData } from "redux/selectors"
+import { logoutUserThunk } from "redux/auth/authOperations";
+import { clearContactsThunk } from "redux/contacts/contactsOperations";
+import { selectAuthetification, selectUserData } from "redux/filters/selectors"
 
 // style
 import { LoginText, LogoutContainer, LogoutLink, LogoutOverlay, LogoutText,  } from "./Logout.styled"

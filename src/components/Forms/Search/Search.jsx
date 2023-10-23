@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"; 
 
-import { setFindQuery } from "redux/findQuerySlice";
+import { setFindQuery } from "redux/filters/findQuerySlice";
 
 // style
 import { FieldBox, FieldLabel, FieldPosition, FieldInput } from "../Forms.styled"
