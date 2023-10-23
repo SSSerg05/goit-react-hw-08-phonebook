@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from "react-router-dom";
 
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
 import { Layout } from "./Layout";
 import { selectToken, selectAuthetification } from 'redux/selectors';
 import { refreshUserThunk } from 'redux/authOperations';
@@ -17,10 +18,8 @@ export const App = () => {
 
   // autoLogin current user (refresh)
   useEffect(() => {
-    if (!token || authetificated) return;
-
     dispatch(refreshUserThunk());
-  }, [token, authetificated, dispatch])
+  }, [dispatch])
  
   const HomePage = lazy(() => import('../../pages/HomePage'));
   const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -33,14 +32,32 @@ export const App = () => {
       <Routes>
         <Route path="/" element={ <Layout />}>
           <Route index element= {<HomePage />} />
-          <Route path="login" element={ <LoginPage /> } />
+
+          <Route path="/login" element={ <LoginPage /> } />
+          {/* <Route 
+            path="login" 
+            element={ 
+              <PublicRoute redirectTo="/contacts">
+                <LoginPage />
+              </PublicRoute >
+          }/> */}
+          
           <Route path="register" element={ <RegisterPage /> } />
+          {/* <Route 
+            path="register" 
+            element={ 
+              <PublicRoute redirectTo="/contacts">
+                <RegisterPage />
+              </PublicRoute >
+          }/> */}
+
           <Route 
             path="contacts" 
             element={ 
               <PrivateRoute redirecTo='/login'>
                 <ContactsPage /> 
-              </PrivateRoute>} />
+              </PrivateRoute>} 
+          />
         </Route>
       </Routes>
     </Container>
