@@ -37,8 +37,10 @@ export const FormContact = ({contact, onClose}) => {
       name, 
       number,
       selected: contact.selected,
-    }));
-    toast.success(`${name} - Update in phonebook`);
+    })).then(
+      toast.success(`${name} - Update in phonebook`)
+    );
+    
     onClose?.();
   }
 
