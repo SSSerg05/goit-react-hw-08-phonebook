@@ -3,8 +3,8 @@ import { MdAccountCircle, MdLogout } from "react-icons/md";
 
 //redux
 import { logoutUserThunk } from "redux/auth/authOperations";
+import { selectAuthetification, selectUserData } from "redux/auth/selectors"
 import { clearContactsThunk } from "redux/contacts/contactsOperations";
-import { selectAuthetification, selectUserData } from "redux/filters/selectors"
 
 // style
 import { LoginText, LogoutContainer, LogoutLink, LogoutOverlay, LogoutText,  } from "./Logout.styled"

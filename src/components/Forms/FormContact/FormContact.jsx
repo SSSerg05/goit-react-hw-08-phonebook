@@ -6,10 +6,9 @@ import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from 'yup';
 
 import { addContactThunk, updateContactThunk } from "redux/contacts/contactsOperations";
-import { selectContacts, } from "redux/filters/selectors";
+import { selectContacts, } from "redux/contacts/selectors";
 
 // style
-//import { FieldBox, FieldLabel, FieldPosition, FieldInput, } from "../Forms.styled"
 import { ButtonSaveContact as ButtonReset, ButtonSaveContact, ButtonsBox, } from '../Buttons.styles';
 import { TextInputLiveFeedback } from "../TextInputLiveFeedback/TextInputLiveFeedback";
 

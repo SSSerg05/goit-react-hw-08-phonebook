@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoMoonOutline, IoSunny } from 'react-icons/io5';
 // redux
-import { selectStatusTheme } from 'redux/filters/selectors';
+import { selectStatusTheme } from 'redux/theme/selectors';
 import { setStatusTheme } from 'redux/theme/themeSlice';
 // style
 import { ThemeLink } from './Theme.styled'
