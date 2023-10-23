@@ -9,8 +9,8 @@ import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 
 export const RegisterPage = () => { 
   
-  const authetificated = useSelector(selectAuthetification);
-  if(authetificated) return <Navigate to='/contacts' />
+  // const authetificated = useSelector(selectAuthetification);
+  // if(authetificated) return <Navigate to='/contacts' />
 
   return(
     <Section title='Register Your Account'>

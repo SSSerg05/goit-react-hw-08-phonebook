@@ -5,8 +5,8 @@ import { Phonebook } from 'components/Phonebook/Phonebook';
 
 export const ContactsPage = () => { 
 
-  const authetificated = useSelector(selectAuthetification);
-  if (!authetificated) return;
+  // const authetificated = useSelector(selectAuthetification);
+  // if (!authetificated) return;
 
   return(
       <Phonebook />

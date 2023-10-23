@@ -7,8 +7,8 @@ import { Section } from "components/Section/Section"
 
 export const LoginPage = () => { 
   
-  const authetificated = useSelector(selectAuthetification);
-  if(authetificated) return <Navigate to='/contacts' />
+  // const authetificated = useSelector(selectAuthetification);
+  // if(authetificated) return <Navigate to='/contacts' />
 
 
   return(
