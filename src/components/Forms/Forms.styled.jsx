@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 const colorsValid = { 
-  error: 'red', 
-  success: 'green', 
-  valid: 'green', 
-  invalid: 'red', 
+  error: 'red',       // textError + textHelp
+  success: 'green',   // textError + textHelp
+  valid: 'red',       // border
+  invalid: 'green',   // border 
 }
 
 export const FieldBox = styled.div`

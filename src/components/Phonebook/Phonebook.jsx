@@ -4,7 +4,7 @@ import { MdAddIcCall } from 'react-icons/md';
 
 
 // redux
-import { requestContactsThunk } from "redux/operations";
+import { requestContactsThunk } from "redux/operationsContacts";
 import { selectError, selectLoading, selectAuthetification } from "redux/selectors";
 
 // components

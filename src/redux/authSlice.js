@@ -4,7 +4,7 @@ import {
   registerUserThunk,
   loginUserThunk, 
   refreshUserThunk,
-  logoutUserThunk, } from "./operations";
+  logoutUserThunk, } from "./operationsAuth";
 
 const handlePending = state => {
   state.loading = true;

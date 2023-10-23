@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from 'yup';
 
-import { addContactThunk, updateContactThunk } from "redux/operations";
+import { addContactThunk, updateContactThunk } from "redux/operationsContacts";
 import { selectContacts, } from "redux/selectors";
 
 // style

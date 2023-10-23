@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { Layout } from "./Layout";
 import { selectToken, selectAuthetification } from 'redux/selectors';
-import { refreshUserThunk } from 'redux/operations';
+import { refreshUserThunk } from 'redux/operationsAuth';
 import { Container } from "./App.styled";
 
 
