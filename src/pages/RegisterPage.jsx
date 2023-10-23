@@ -14,7 +14,7 @@ export const RegisterPage = () => {
 
   return(
     <Section title='Register Your Account'>
-      <FormRegister />
+      <FormRegister /> 
     </Section>
   )
 }
