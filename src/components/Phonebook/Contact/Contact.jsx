@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { MdClose, MdEdit, MdAccountBox, MdOutlinePhoneAndroid,} from 'react-icons/md';
 import PropTypes from 'prop-types'; // ES6'
 
-import { deleteContactThunk, } from "redux/operationsContacts";
+import { deleteContactThunk, } from "redux/contactsOperations";
 
 import { Card, Name, Checkbox, Number, FieldContact, FieldName, FieldNumber } from './Contact.styled';
 import { ButtonDelete, ButtonEdit } from '../../Forms/Buttons.styles';

@@ -5,7 +5,7 @@ import {
   addContactThunk, 
   deleteContactThunk,
   updateContactThunk,
-  clearContactsThunk, } from "./operationsContacts";
+  clearContactsThunk, } from "./contactsOperations";
 
 const handlePending = state => {
   state.loading = true;

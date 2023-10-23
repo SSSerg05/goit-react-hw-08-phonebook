@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { registerUserThunk } from '../../../redux/operationsAuth'
+import { registerUserThunk } from '../../../redux/authOperations'
 // style
 import { TextInputLiveFeedback } from 'components/Forms/TextInputLiveFeedback/TextInputLiveFeedback';
 import { ButtonSaveContact as ButtonSignUp, ButtonSaveContact as ButtonReset, ButtonsBox } from '../Buttons.styles';

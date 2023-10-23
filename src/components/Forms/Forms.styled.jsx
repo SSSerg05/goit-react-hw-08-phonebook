@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 const colorsValid = { 
   error: 'red',       // textError + textHelp
   success: 'green',   // textError + textHelp
-  valid: 'red',       // border
-  invalid: 'green',   // border 
+  valid: 'green',     // border input
+  invalid: 'red',     // border input
 }
 
 export const FieldBox = styled.div`
