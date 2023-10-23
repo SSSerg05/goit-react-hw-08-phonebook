@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { Navigate } from 'react-router-dom';
 
-import {selectAuthetification} from 'redux/selectors';
+// import {selectAuthetification} from 'redux/selectors';
 import { Section } from "components/Section/Section"
 
 import { FormRegister } from "components/Forms/FormRegister/FormRegister"
