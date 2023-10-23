@@ -1,6 +1,4 @@
 import { Section } from "components/Section/Section"
-//import { DivParent, DivSecond, DivThree } from "components/Section/Section.styled"
-
 
 export const HomePage = () => { 
 
