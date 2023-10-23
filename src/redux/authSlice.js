@@ -18,9 +18,10 @@ const handleRejected = (state, action) => {
 };
 
 const authInitialState = { 
-  userData: null,
+  userData: { name: null, email: null },
   token: null,
   authetification: false,
+  isRefreshing: false,
   loading: false,
   error: null,
 };
@@ -51,19 +52,26 @@ const authSlice = createSlice({
       })
       .addCase(refreshUserThunk.rejected, handleRejected)
       // ==== Refresh ====
-      .addCase(refreshUserThunk.pending, handlePending)
+      .addCase(refreshUserThunk.pending, (state) => {
+        state.isRefreshing = true;
+        handlePending(state);
+      })
       .addCase(refreshUserThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.userData = action.payload;
         state.authetification = true;
+        state.isRefreshing = false;
       })
-      .addCase(loginUserThunk.rejected, handleRejected)
+      .addCase(loginUserThunk.rejected, (state) => {
+        state.isRefreshing = false;
+        handleRejected(state);
+      })
       // ==== Logout ====
       .addCase(logoutUserThunk.pending, handlePending)
       .addCase(logoutUserThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.authetification = false;
-        state.userData = null;
+        state.userData = { name: null, email: null };
         state.token = null;
       })
       .addCase(logoutUserThunk.rejected, handleRejected)      

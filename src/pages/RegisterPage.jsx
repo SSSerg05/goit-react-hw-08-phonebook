@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom';
 
 import {selectAuthetification} from 'redux/selectors';
 import { Section } from "components/Section/Section"
-// import { Formik, Field, Form } from "formik"
 
 import { FormRegister } from "components/Forms/FormRegister/FormRegister"
 

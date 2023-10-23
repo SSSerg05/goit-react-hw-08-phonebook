@@ -33,23 +33,26 @@ export const App = () => {
         <Route path="/" element={ <Layout />}>
           <Route index element= {<HomePage />} />
 
-          <Route path="/login" element={ <LoginPage /> } />
-          {/* <Route 
+          {/* <Route path="/login" element={ <LoginPage /> } /> */}
+          <Route 
             path="login" 
             element={ 
-              <PublicRoute redirectTo="/contacts">
-                <LoginPage />
-              </PublicRoute >
-          }/> */}
+              <PublicRoute redirecTo="/contacts" >
+                <LoginPage /> 
+              </PublicRoute>
+            }
+          />
           
-          <Route path="register" element={ <RegisterPage /> } />
-          {/* <Route 
+          {/* <Route path="register" element={ <RegisterPage /> } /> */}
+          <Route 
             path="register" 
             element={ 
-              <PublicRoute redirectTo="/contacts">
+              <PublicRoute redirecTo="/contacts">
                 <RegisterPage />
-              </PublicRoute >
-          }/> */}
+              </PublicRoute>
+            }
+          />
+          
 
           <Route 
             path="contacts" 

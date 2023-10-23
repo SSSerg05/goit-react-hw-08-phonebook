@@ -7,7 +7,7 @@ import { selectAuthetification } from "redux/selectors";
 const PublicRoute = ({children, redirecTo = '/'}) => {
   const authetificated = useSelector(selectAuthetification);
 
-  return !authetificated ? children : <Navigate to={redirecTo} />;
+  return authetificated ? <Navigate to={redirecTo} /> : children;
 }
 
 export default PublicRoute;
