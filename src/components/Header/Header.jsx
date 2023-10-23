@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 // redux
 import { selectAuthetification } from 'redux/selectors';
 // components
-import { UserMenu } from 'components/UserMenu/UserMenu';
-import { UserRegistration } from 'components/UserRegistration/UserRegestraation';
+import { UserMenu } from 'components/Header/UserMenu/UserMenu';
+import { UserRegistration } from 'components/Header/UserRegistration/UserRegestraation';
 // style
 import { HeaderApp, Nav } from "./Header.styled";
 

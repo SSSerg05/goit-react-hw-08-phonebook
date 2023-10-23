@@ -9,19 +9,18 @@ import { Header } from 'components/Header/Header';
 export const Layout = () => {
 
   return (
-    // <Theme theme={ligthTheme}>
-      <Container>
-        <Header />
-        <main>
-          <Suspense fallback={
-            <>
-              <div>Loading...</div>
-              <Loader />
-            </> 
-          }>
-            <Outlet />
-          </Suspense>
-        </main>
-      </Container>
+    <Container>
+      <Header />
+      <main>
+        <Suspense fallback={
+          <>
+            <div>Loading...</div>
+            <Loader />
+          </> 
+        }>
+          <Outlet />
+        </Suspense>
+      </main>
+    </Container>
   )
 }

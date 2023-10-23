@@ -1,4 +1,4 @@
-import Logout from "components/Logout/Logout";
+import Logout from "components/Header/Logout/Logout";
 import { List, Link, } from "./UserMenu.styled";
 
 

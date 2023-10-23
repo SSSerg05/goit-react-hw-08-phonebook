@@ -1,4 +1,4 @@
-import { Theme } from "components/Theme/Theme"
+import { Theme } from "components/Header/Theme/Theme"
 import { List, Link } from "./UserRegistration.styled"
 
 export const UserRegistration =() => {
