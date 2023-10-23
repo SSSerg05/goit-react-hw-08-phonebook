@@ -10,6 +10,7 @@ export const UserMenu = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/contacts'>Contacts</Link></li>
       </List>
+      
       <Logout />
     </>
   )
