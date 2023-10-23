@@ -2,14 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { $instance } from "./constants";
 
-// https://mockapi.io
-// https://6525265667cfb1e59ce6bb61.mockapi.io  - HW-07
-// https://connections-api.herokuapp.com/       - HW-08
-
-// const $instance2 = axios.create({
-//   baseURL: "https://connections-api.herokuapp.com",
-// });
-
 // Contacts
 //====================
 // get all list Contacts
