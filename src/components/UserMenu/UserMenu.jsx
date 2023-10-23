@@ -1,12 +1,16 @@
-import { UserMenuList, UserMenuLink, } from "./UserMenu.styled";
+import Logout from "components/Logout/Logout";
+import { List, Link, } from "./UserMenu.styled";
 
 
 export const UserMenu = () => {
 
   return (
-    <UserMenuList>
-      <li><UserMenuLink to='/'>Home</UserMenuLink></li>
-      <li><UserMenuLink to='/contacts'>Contacts</UserMenuLink></li>
-    </UserMenuList>
+    <>
+      <List>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/contacts'>Contacts</Link></li>
+      </List>
+      <Logout />
+    </>
   )
 }

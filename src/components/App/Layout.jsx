@@ -7,6 +7,8 @@ import { selectAuthetification } from 'redux/selectors';
 import Logout from 'components/Logout/Logout';
 import { Container, Header, Link, List, Nav } from "./Layout.styled.js";
 import { Theme } from 'components/Theme/Theme';
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { UserRegistration } from 'components/UserRegistration/UserRegestraation';
 
 
 export const Layout = () => {
@@ -19,21 +21,7 @@ export const Layout = () => {
         <Header>
           <Nav>
 
-            <List>
-              <li><Link to='/'>Home</Link></li>
-              { (authetificated && ( 
-                <>
-                  <li><Link to='/contacts'>Contacts</Link></li>
-                </>
-              )) || (
-                <>
-                  <li><Link to='/login'>Login</Link></li>
-                  <li><Link to='/register'>Register</Link></li>
-                </>
-              )}
-            </List>
-            
-            { (authetificated && ( <Logout /> )) || ( <Theme />) }
+           {(authetificated && <UserMenu />) || <UserRegistration />}
 
           </Nav>
         </Header>
