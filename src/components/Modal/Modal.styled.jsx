@@ -4,7 +4,8 @@ import {Button} from "../Forms/Buttons.styles"
  * Стили компонента Modal
  */
 
-export const Overlay = styled.div`
+//Overlay
+export const ModalBackDrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -17,7 +18,7 @@ export const Overlay = styled.div`
   z-index: 100;
 `
 
-export const BoxModal = styled.div`
+export const ModalBox = styled.div`
   position: relative;
   max-width: calc(100vw - 36px);
   width: 270px;
