@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from 'prop-types';
 
@@ -6,81 +6,84 @@ import PropTypes from 'prop-types';
 import { MdClose } from 'react-icons/md';
 
 // style
-import { Overlay, BoxModal, ModalButtonClose, ModalImage, ModalTitle, } from "./Modal.styled";
+import { Overlay, BoxModal, ModalButtonClose, ModalTitle, } from "./Modal.styled";
+import { useDispatch } from "react-redux";
 
 
 const modalRoot = document.querySelector('#modal-root');
 
-export class Modal extends Component {
+export const Modal = ({children, title, src, onClose}) => {
   
-  state = {
-    loaded: false,
-  }
-
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
-
-    this.setState({ loaded: true });
-  }
-
-  onLoadedLargeImage = () => {
-    this.setState({ loaded: false });
-  }
-
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown)
-  }
-
-
-  // close modal for press in ESC
-  handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      // console.log("You press ESC");
-      this.props.onClose();
-    }
-  }
-
+  // const [loaded, setLoaded] = useState(false);
   
-  // close modal for click in backdrop || button
-  handleBackdropClick = e => { 
-    if (e.currentTarget === e.target) { 
-       this.props.onClose();
-    }
-  }
+  const dispatch = useDispatch();
 
-  handleCloseButtonClick = e => { 
-    this.props.onClose();
-  }
+  useEffect(() => {
+    // document.body.style.overflow = 'hidden';
 
-  render() {
-    const { children, src='', title='' } = this.props;
-    // const { loaded } = this.state;
+    const handleKeyDown = event => {
+      if (event.code === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      // document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [dispatch, onClose]);
+
+  // useEffect(() => {
+  //   // close modal for press in ESC
+  //   const handleKeyDown = e => {
+  //     if (e.code === 'Escape') {
+  //       onClose();
+  //     }
+  //   }
+
+  //   window.addEventListener('keydown', handleKeyDown);
+  //   setLoaded(true)
     
-    return createPortal(
-      <Overlay onClick={ this.handleBackdropClick }>
-       
-        <BoxModal>
-          { title && 
-            <ModalTitle>
-              { title }
-            </ModalTitle>
-          }
-          
-          { children }
+  //   return window.removeEventListener('keydown', handleKeyDown)
+  // }, [loaded, onClose  ]);
 
-          { src && (<ModalImage onLoad={  this.onLoadedLargeImage } src={ src } alt={ title } /> )}
+  const handleKeyDown = e => {
+    if (e.code === 'Escape') {
+      onClose();
+    }
+  }
 
-          <ModalButtonClose type="button" onClick={ this.handleCloseButtonClick }>
-            <MdClose size={12} />
-          </ModalButtonClose>
+  // close modal for click in backdrop || button
+  const handleBackdropClick = e => { 
+    if (e.currentTarget === e.target) { 
+       onClose();
+    }
+  }
 
+  // close modal for click in button
+  const handleCloseButtonClick = e => { 
+    onClose();
+  }
 
-        </BoxModal>
-      
-      </Overlay>
-    , modalRoot)
-  };
+  return createPortal(
+    <Overlay onClick={ handleBackdropClick }>
+     
+      <BoxModal>
+        { title && 
+          <ModalTitle>
+            { title }
+          </ModalTitle>
+        }
+        
+        { children }
+
+        <ModalButtonClose type="button" onClick={ handleCloseButtonClick }>
+          <MdClose size={12} />
+        </ModalButtonClose>
+      </BoxModal>
+    
+    </Overlay>
+  , modalRoot)
 }
 
 Modal.propTypes = {

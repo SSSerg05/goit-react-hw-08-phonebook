@@ -9,11 +9,13 @@ export const Button = styled.button`
   padding: 0;
   margin: 0;
   border: none;
+  outline: none;
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
  
   &:hover {
+    border: none;
     color: white;
     background-color: #f44336;
   }
