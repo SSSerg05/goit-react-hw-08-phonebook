@@ -71,7 +71,7 @@ export const Phonebook = () => {
       { showModal && (
           <Modal
             title={'Add new'}
-            onClose={ toggleModal }
+            modalClose={ toggleModal }
           >
             <FormContact contact={{name:"", number:""}} onClose={ toggleModal }/>
           </Modal> 
